@@ -13,7 +13,8 @@ private $smarty;
 
   }
 
-  function mostrar(){
+  function mostrar($peliculas){
+    $this->smarty->assign('peliculas',$peliculas);
     $this->smarty->display('peliculasdisponibles.tpl');
   }
 }

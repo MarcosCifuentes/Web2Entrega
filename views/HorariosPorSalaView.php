@@ -13,7 +13,8 @@ private $smarty;
 
   }
 
-  function mostrar(){
+  function mostrar($horarios){
+    $this->smarty->assign('horarios',$horarios);
     $this->smarty->display('horariosporsala.tpl');
   }
 }

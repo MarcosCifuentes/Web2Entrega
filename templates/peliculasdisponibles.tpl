@@ -19,7 +19,27 @@
     <form id="formPelicula" action="guardar_pelicula" method="post" enctype="multipart/form-data">
       <input type="text" name="titulo"  required value="" placeholder="Titulo">
       <input type="text" name="duracion"  required value="" placeholder="duracion">
-      <input type="text" name="genero"  required value="" placeholder="genero">
+      <select Emp Name='NEW'>
+        <option value="">Elegir Genero</option>
+        <!-- <?
+            mysql_connect ("localhost","root","");
+            mysql_select_db ("company");
+            $select="company";
+            if (isset ($select)&&$select!=""){
+            $select=$_POST ['NEW'];
+        }
+        ?>
+        <?
+            $list=mysql_query("select * from employee order by emp_id asc");
+        while($row_list=mysql_fetch_assoc($list)){
+            ?>
+                <option value="<? echo $row_list['emp_id']; ?>"<? if($row_list['emp_id']==$select){ echo "selected"; } ?>>
+                                     <?echo $row_list['emp_name'];?>
+                </option>
+            <?
+            }
+            ?> -->
+        </select>
       <textarea class="form-control" rows="8" required value="" placeholder="descripcion"></textarea>
       <input type="file" name="imagen" required value="" single>
       <input type="submit" name="Agregar" id="agregarPeliculaBtn">

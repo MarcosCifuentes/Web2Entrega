@@ -30,7 +30,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $horariosPorSalaController->eliminarPelicula();
   break;
   case ConfigApp::$ACTION_ELIMINAR_MENSAJE:
-  $ContactoController->eliminarMensaje();
+  $contactoController->eliminarMensaje();
   break;
   default:
   $cinemaController->iniciar();

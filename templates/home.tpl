@@ -14,15 +14,15 @@
     </div>
 
     <div class="item">
-      <img src="img_chania2.jpg" alt="Chania">
+      <img src="" alt="Chania">
     </div>
 
     <div class="item">
-      <img src="img_flower.jpg" alt="Flower">
+      <img src="" alt="Flower">
     </div>
 
     <div class="item">
-      <img src="img_flower2.jpg" alt="Flower">
+      <img src="" alt="Flower">
     </div>
   </div>
 

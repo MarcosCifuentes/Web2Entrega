@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-15 23:44:42
+/* Smarty version 3.1.30, created on 2016-10-17 16:20:06
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5802a34af06c03_51741529',
+  'unifunc' => 'content_5804de16362f18_92386743',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5802a34af06c03_51741529 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5804de16362f18_92386743 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
