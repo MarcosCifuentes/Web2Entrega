@@ -1,6 +1,6 @@
 <?php
 
-class PeliculasDisponiblesModel
+class PeliculasDisponiblesModel{
 
 private $db;
 
@@ -29,6 +29,7 @@ function __construct()
     $sentencia->execute(array($id_pelicula));
     return $sentencia->rowCount();
   }
+}
 }
 
 ?>

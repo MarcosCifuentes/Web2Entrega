@@ -1,19 +1,23 @@
 <?php
 require_once('views/PeliculasDisponiblesView.php');
+require_once ('models/PeliculasDisponiblesModel.php');
 
-class  PeliculasDisponiblesController
-{
+class  PeliculasDisponiblesController{
+  
   private $vista;
-
+  private $model;
 
 
   function __construct()
   {
+    $this->model = new PeliculasDisponiblesModel();
     $this->vista = new PeliculasDisponiblesView();
   }
 
   function mostrar(){
+    $this->model->getpeliculas();
     $this->vista->mostrar();
+
 
   }
 
