@@ -21,6 +21,9 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   case ConfigApp::$ACTION_MOSTRAR_CONTACTO:
   $contactoController->mostrar();
   break;
+  case ConfigApp::$ACTION_MOSTRAR_PELICULAS_DISPONIBLES:
+  $peliculasDisponiblesController->mostrar();
+  break;
   case ConfigApp::$ACTION_AGREGAR_PELICULA:
   $peliculasDisponiblesController->agregarPelicula();
   $horariosPorSalaController->agregarPelicula();

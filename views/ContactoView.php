@@ -13,6 +13,7 @@ private $smarty;
   }
 
   function mostrar(){
+    $this->smarty->assign('contactos',$contactos);
     $this->smarty->display('contacto.tpl');
   }
 }
