@@ -13,8 +13,16 @@ class ContactoModel
   function getMensajes(){
       $sentencia = $this->db->prepare( "select * from contacto");
       $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      $contactos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+      return $contactos;
     }
+
+  function eliminarMensaje($id_contacto){
+    $sentencia = $this->db->prepare("delete from contacto where id_contacto=?");
+    $sentencia->execute(array($id_contacto));
+    return $sentencia->rowCount();
+  }
 }
 
 ?>

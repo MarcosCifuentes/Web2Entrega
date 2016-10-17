@@ -16,6 +16,20 @@ class  HorariosPorSalaController
     $this->vista->mostrar();
 
   }
+
+  function agregarPelicula(){
+    if(isset($_POST['sala'])&&($_POST['sala'])!=""){
+      $titulo = $_POST['titulo'];
+      $sala = $_POST['sala'];
+      $horario =  $_POST['horario'];
+      $this->modelo->agregarPelicula($nuevapelicula);
+      }
+}
+
+  function eliminarPelicula(){
+    $key = $_GET['id_horario'];
+    $this->modelo->eliminarPelicula($key);
+  }
 }
 
  ?>

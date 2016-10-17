@@ -13,5 +13,10 @@ class  ContactoController
     $this->vista->mostrar();
 
   }
+
+  function eliminarMensaje(){
+    $key = $_GET['id_contacto'];
+    $this->modelo->eliminarMensaje($key);
+  }
 }
  ?>
