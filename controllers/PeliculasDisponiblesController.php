@@ -3,10 +3,9 @@ require_once('views/PeliculasDisponiblesView.php');
 require_once ('models/PeliculasDisponiblesModel.php');
 
 class  PeliculasDisponiblesController{
-  
+
   private $vista;
   private $model;
-
 
   function __construct()
   {
@@ -15,9 +14,8 @@ class  PeliculasDisponiblesController{
   }
 
   function mostrar(){
-    $this->model->getpeliculas();
+    $this->model->getPeliculas();
     $this->vista->mostrar();
-
 
   }
 

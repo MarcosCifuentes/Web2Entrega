@@ -1,18 +1,21 @@
 <?php
 require_once('views/HorariosPorSalaView.php');
+require_once ('models/HorariosPorSalaModel.php');
 
 class  HorariosPorSalaController
 {
   private $vista;
-
+  private $model;
 
 
   function __construct()
   {
+    $this->model = new HorariosPorSalaModel();
     $this->vista = new HorariosPorSalaView();
   }
 
   function mostrar(){
+    $this->model->getHorarios();
     $this->vista->mostrar();
 
   }

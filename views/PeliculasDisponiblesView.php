@@ -1,8 +1,7 @@
 <?php
 require_once('libs/Smarty.class.php');
 
-class PeliculasDisponiblesView
-{
+class PeliculasDisponiblesView{
 private $smarty;
 
   function __construct(){
@@ -14,6 +13,5 @@ private $smarty;
     $this->smarty->display('templates/peliculasdisponibles.tpl');
   }
 }
-
 
  ?>
