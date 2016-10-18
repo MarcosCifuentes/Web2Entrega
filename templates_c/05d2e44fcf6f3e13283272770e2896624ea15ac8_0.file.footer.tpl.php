@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 03:33:00
+/* Smarty version 3.1.30, created on 2016-10-18 17:51:33
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\footer.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58057bcce42529_35922155',
+  'unifunc' => 'content_58064505d07a48_58821878',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58057bcce42529_35922155 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58064505d07a48_58821878 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
  src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"><?php echo '</script'; ?>
 >

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 03:33:00
+/* Smarty version 3.1.30, created on 2016-10-18 17:51:33
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\body.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58057bcce369a1_34522749',
+  'unifunc' => 'content_58064505cf41c8_43391613',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58057bcce369a1_34522749 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58064505cf41c8_43391613 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <body>
   <nav class="navbar navbar-default">

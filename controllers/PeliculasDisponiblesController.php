@@ -1,46 +1,40 @@
 <?php
 include_once('views/PeliculasDisponiblesView.php');
 include_once ('models/PeliculasDisponiblesModel.php');
+include_once('models/GeneroModel.php');
+include_once('views/GeneroView.php');
 
 class  PeliculasDisponiblesController{
 
-  private $vista;
-  private $model;
+  protected $vista;
+  protected $model;
+  protected $modelGenero;
+  protected $vistaGenero;
 
   function __construct(){
     $this->model = new PeliculasDisponiblesModel();
     $this->vista = new PeliculasDisponiblesView();
+    $this->modelGenero = new GeneroModel();
+    $this->vistaGenero = new GeneroView();
   }
 
-  function mostrar(){
-    $peliculas=$this->model->getPeliculas();
-    $this->vista->mostrar($peliculas);
-  
-  }
-
-  function getImagenVerificada($imagen){
-    $imagenVerificada = [];
-        if($imagen['size']>0 && ($imagenes['type']=="image/jpeg" || $imagenes['type']=="image/png")){
-        $imagen_aux = [];
-        $imagen_aux['tmp_name']=$imagen['tmp_name'];
-        $imagen_aux['name']=$imagen['name'];
-        $imagenVerificada[]=$imagen_aux;
-      }
-
-    return $imagenVerificada;
-  }
+  function mostrarPeliculas(){
+  $peliculas = $this->model->getPeliculas();
+  $generos = $this->modelGenero->getGeneros();
+  $this->vista->mostrarPeliculas($peliculas, $generos);
+}
 
   function agregarPelicula(){
-    if(isset($_POST['titulo'])&&($_POST['titulo'])!=""){
+
       $titulo = $_POST['titulo'];
       $descripcion = $_POST['descripcion'];
       $duracion =  $_POST['duracion'];
       $genero =  $_POST['genero'];
-      if(isset($_FILE['imagen'])){
-        $imagen = $this->getImagenVerificada($_FILE['imagen']);
-        $nuevapelicula = array('titulo'=>$titulo,'descripcion'=>$descripcion,'duracion'=>$duracion, 'genero'=>$genero);
-        $this->modelo->agregarPelicula($nuevapelicula,$imagen);
-      }
+      $imagen = $_FILES['imagen'];
+      if (isset($genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
+      $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagen);
+    }
+    $this->mostrarPeliculas();
 }
 }
   function eliminarPelicula(){
@@ -48,5 +42,5 @@ class  PeliculasDisponiblesController{
     $this->modelo->eliminarPelicula($key);
   }
 
-}
+
  ?>

@@ -29,12 +29,11 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$ACTION_MOSTRAR_PELICULAS_DISPONIBLES:
-  $peliculasDisponiblesController->mostrar();
+  $peliculasDisponiblesController->mostrarPeliculas();
   break;
 
   case ConfigApp::$ACTION_AGREGAR_PELICULA:
   $peliculasDisponiblesController->agregarPelicula();
-  $horariosPorSalaController->agregarPelicula();
   break;
 
   case ConfigApp::$ACTION_ELIMINAR_PELICULA:

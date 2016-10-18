@@ -41,7 +41,7 @@ $(document).ready(function() {
     Cargar('mostrar_contacto');
     ev.preventDefault();
   });
-  $(document).on('click','#js-agregarPelicula',function () {
+  $(document).on('submit',"#formPelicula",function () {
     event.preventDefault();
     formData = new FormData(this);
     $.ajax({
