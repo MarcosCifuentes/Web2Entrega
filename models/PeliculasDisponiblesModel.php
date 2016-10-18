@@ -7,13 +7,21 @@ private $db;
 function __construct()
 {
   $this->db = new PDO('mysql:host=localhost;dbname=cinema_false;charset=utf8', 'root', '');
-
+}
   function getPeliculas(){
       $sentencia = $this->db->prepare( "select * from pelicula");
       $sentencia->execute();
       $peliculas = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
       return $peliculas;
+    }
+
+  function getGeneros(){
+      $sentencia = $this->db->prepare( "select * from genero");
+      $sentencia->execute();
+      $generos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+      return $generos;
     }
 
   function agregarPelicula($nuevapelicula, $imagen){
@@ -30,6 +38,6 @@ function __construct()
     return $sentencia->rowCount();
   }
 }
-}
+
 
 ?>

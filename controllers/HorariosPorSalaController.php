@@ -15,14 +15,14 @@ class  HorariosPorSalaController
   }
 
   function mostrar(){
-    $this->model->getHorarios();
-    $this->vista->mostrar();
+    $peliculas=$this->model->getHorarios();
+    $this->vista->mostrar($peliculas);
 
   }
 
   function agregarPelicula(){
     if(isset($_POST['sala'])&&($_POST['sala'])!=""){
-      $titulo = $_POST['titulo'];
+      $pelicula = $_POST['fk_pelicula'];
       $sala = $_POST['sala'];
       $horario =  $_POST['horario'];
       $this->modelo->agregarPelicula($nuevapelicula);

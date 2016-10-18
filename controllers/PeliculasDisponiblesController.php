@@ -1,22 +1,21 @@
 <?php
-require_once('views/PeliculasDisponiblesView.php');
-require_once ('models/PeliculasDisponiblesModel.php');
+include_once('views/PeliculasDisponiblesView.php');
+include_once ('models/PeliculasDisponiblesModel.php');
 
 class  PeliculasDisponiblesController{
 
   private $vista;
   private $model;
 
-  function __construct()
-  {
+  function __construct(){
     $this->model = new PeliculasDisponiblesModel();
     $this->vista = new PeliculasDisponiblesView();
   }
 
   function mostrar(){
-    $this->model->getPeliculas();
-    $this->vista->mostrar();
-
+    $peliculas=$this->model->getPeliculas();
+    $this->vista->mostrar($peliculas);
+  
   }
 
   function getImagenVerificada($imagen){

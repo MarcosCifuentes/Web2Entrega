@@ -12,6 +12,10 @@ class CinemaView
   function mostrar () {
     $this->smarty->display('index.tpl');
   }
+  function mostrarContenido () {
+    $this->smarty->display('home.tpl');
+  }
+
 
 }
 

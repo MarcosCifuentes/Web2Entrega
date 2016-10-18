@@ -14,6 +14,10 @@ class CinemaController
 
     $this->vista->mostrar();
   }
+  function iniciarContenido () {
+
+    $this->vista->mostrarContenido();
+  }
 
 }
 

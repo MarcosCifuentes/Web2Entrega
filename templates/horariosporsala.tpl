@@ -11,7 +11,7 @@
       {foreach from=$horarios key=index item=horario}
       <tr>
         <td>
-          {$horario['pelicula']}
+          {$horario['fk_pelicula']}
         </td>
         <td>
           {$horario['sala']}
@@ -31,5 +31,5 @@
   <input type="text" name="pelicula"  required value="" placeholder="Pelicula">
   <input type="text" name="sala"  required value="" placeholder="Sala">
   <input type="text" name="horario"  required value="" placeholder="Horario">
-  <button type="submit" class="js-enviardatos">ENVIAR</button>
+  <button type="submit" class="js-agregarPelicula">ENVIAR</button>
 </div>

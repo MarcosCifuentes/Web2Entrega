@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-17 16:20:06
+/* Smarty version 3.1.30, created on 2016-10-18 03:33:00
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\body.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5804de16399a25_62884990',
+  'unifunc' => 'content_58057bcce369a1_34522749',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '64516a9175c1c4770edf1d00efcd22ba21774638' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\body.tpl',
-      1 => 1476453380,
+      1 => 1476746708,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5804de16399a25_62884990 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58057bcce369a1_34522749 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <body>
   <nav class="navbar navbar-default">
@@ -39,10 +39,12 @@ function content_5804de16399a25_62884990 (Smarty_Internal_Template $_smarty_tpl)
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><a href="#" id="js-home" rel="home">Cinema False<span class="sr-only">(Cinema False)</span></a></li>
+              <li><a href="#" id="js-home" rel="home">Cinema False<span class="sr-only">(Cinema False)</span></a></li>
               <li><a href="#" id="js-peliculasdisponibles" rel="peliculasdisponibles">Peliculas Disponibles<span class="sr-only">(Peliculas Disponibles)</span></a></li>
               <li><a href="#" id="js-horariosporsala" rel="horariosporsala">Horarios por Sala<span class="sr-only">(Horarios por Sala)</span></a></li>
               <li><a href="#" id="js-contacto" rel="contacto">Contacto<span class="sr-only">(Contacto)</span></a></li>
+              <li><a href="#" id="js-admin" rel="admin">Admin<span class="sr-only">(Admin)</span></a></li>
+
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -51,9 +53,7 @@ function content_5804de16399a25_62884990 (Smarty_Internal_Template $_smarty_tpl)
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <article id="js-pisar">
-          <div class="thumbnail">
-
-          </div>
+          
         </article>
 
       </div>

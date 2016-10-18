@@ -12,6 +12,7 @@ private $smarty;
     $this->smarty->assign('peliculas',$peliculas);
     $this->smarty->display('templates/peliculasdisponibles.tpl');
   }
+
 }
 
  ?>

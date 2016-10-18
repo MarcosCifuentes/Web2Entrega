@@ -8,7 +8,7 @@
       <li>{$pelicula['fk_genero']}</li>
       <li>{$pelicula['duracion']}</li>
       <li>{$pelicula['descripcion']}</li>
-      <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idturno="{$turno['id_turno']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eliminar Pelicula</a>
+      <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idturno="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eliminar Pelicula</a>
     </ul>
   </li>
   {/foreach}
@@ -21,6 +21,9 @@
       <input type="text" name="duracion"  required value="" placeholder="duracion">
       <select Emp Name='NEW'>
         <option value="">Elegir Genero</option>
+        {foreach from=$generos key=index item=genero}
+        <option value="">{$genero['genero']}</option>
+        {/foreach}
         <!-- <?
             mysql_connect ("localhost","root","");
             mysql_select_db ("company");
