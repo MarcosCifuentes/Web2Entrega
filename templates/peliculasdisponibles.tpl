@@ -34,4 +34,22 @@
       <input type="file" name="imagen" required value="" single>
       <input type="submit" name="Agregar" id="agregarPelicula">
     </form>
+    <div class="editarPelicula">
+      <h2>Editar Pelicula</h2>
+        <form id="formEditPelicula" action="editar_pelicula" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="data-idpelicula" value={$pelicula['id_pelicula']} >
+          <input type="text" name="titulo"  required value="" placeholder="Titulo">
+          <input type="text" name="duracion"  required value="" placeholder="duracion">
+          <div class="">Genero:
+          <select class="form-control"  name="genero">
+            <option value="">Elegir Genero</option>
+            {foreach from=$generos item=genero}
+            <option value="{$genero['genero']}">{$genero['genero']}</option>
+            {/foreach}
+            </select>
+            </div>
+          <textarea class="form-control" rows="8" type="text" name="descripcion" required value="" placeholder="descripcion"></textarea>
+          <input type="submit" name="Agregar" id="editarPelicula">
+        </form>
+      </div>
 </div>

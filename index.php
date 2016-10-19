@@ -38,6 +38,10 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $generoController->iniciar();
   break;
 
+  case ConfigApp::$ACTION_AGREGAR_GENERO:
+  $generoController->agregarGenero();
+  break;
+
   case ConfigApp::$ACTION_LISTAR_PELICULAS_GENERO:
   $generoController->mostrarPeliculasGenero();
   break;

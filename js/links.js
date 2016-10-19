@@ -12,6 +12,7 @@ $(document).ready(function() {
       success: function(dataDevuelta){
         $('#js-pisar').html(dataDevuelta);
         $(".js-visibilidad").hide();
+        $(".editarPelicula").hide();
       },
       error: function() {
         alert('Error');
@@ -54,6 +55,12 @@ $(document).ready(function() {
 
   });
 
+  $('#editarPelicula').on("click",function(){
+    event.preventDefault();
+      $(".editarPelicula").toggle();
+
+  });
+
   $(document).on('submit',"#formPelicula",function () {
     event.preventDefault();
     formData = new FormData(this);
@@ -92,6 +99,22 @@ $(document).ready(function() {
     $.ajax({
       method: "POST",
       url: "index.php?action=enviar_mensaje",
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(data) {
+        $("#js-pisar").html(data);
+      }
+    });
+  });
+
+  $(document).on('submit',"#formGenero",function () {
+    event.preventDefault();
+    formData = new FormData(this);
+    $.ajax({
+      method: "POST",
+      url: "index.php?action=agregar_genero",
       data: formData,
       contentType: false,
       cache: false,

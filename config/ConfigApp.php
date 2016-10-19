@@ -9,6 +9,7 @@ class ConfigApp{
   public static $ACTION_AGREGAR_PELICULA = 'agregar_pelicula';
   public static $ACTION_ELIMINAR_PELICULA = 'eliminar_pelicula';
   public static $ACTION_LISTAR_PELICULAS_GENERO = 'listar_peliculas_genero';
+  public static $ACTION_AGREGAR_GENERO = 'agregar_genero';
   public static $ACTION_AGREGAR_HORARIO = 'agregar_horario';
   public static $ACTION_ELIMINAR_HORARIO = 'eliminar_horario';
   public static $ACTION_ENVIAR_MENSAJE = 'enviar_mensaje';

@@ -23,7 +23,7 @@ class GeneroModel extends PeliculasDisponiblesModel{
     $sentencia = $this->db->prepare("delete from genero where id_genero=?");
     $sentencia->execute(array($id_genero));
   }
-  function crearGenero($valor){
+  function agregarGenero($valor){
     $sentencia = $this->db->prepare("INSERT INTO genero(genero) VALUES(?)");
     $sentencia->execute(array($valor));
   }
