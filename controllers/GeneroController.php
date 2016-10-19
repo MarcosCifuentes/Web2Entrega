@@ -1,11 +1,11 @@
 <?php
-require_once ('model/PeliculasDisponiblesModel.php');
-require_once ('controller/PeliculasDisponiblesController.php');
-require_once ('view/GeneroView.php');
-require_once ('model/GeneroModel.php');
+require_once ('models/PeliculasDisponiblesModel.php');
+require_once ('controllers/PeliculasDisponiblesController.php');
+require_once ('views/GeneroView.php');
+require_once ('models/GeneroModel.php');
 
 class GeneroController extends PeliculasDisponiblesController{
-  private $model;
+  protected $model;
   function __construct(){
     parent::__construct();
     $this->view = new GeneroView();
@@ -15,13 +15,14 @@ class GeneroController extends PeliculasDisponiblesController{
     $generos = $this->getGeneros();
     $this->view->iniciar($generos);
   }
-  function buscarPeliculasGenero(){
-    $id_genero = $_POST["id_genero"];
-    //llega
-    $generos = $this->model->buscarPeliculasGenero($id_genero);
-    $generos = $this->getGeneros();
-    $this->view->mostrarPeliculasGenero($peliculas,$generos);
+  function mostrarPeliculasGenero(){
+    if(isset($_POST['genero'])) {
+      $mostrar =  $_POST['genero'];
+      $genero= $this->model->mostrarPeliculasGenero($mostrar);
+      $this->view->mostrarPeliculasGenero($genero);
+    }
   }
+
   function getGeneros(){
     return $this->model->getGeneros();
   }
@@ -35,8 +36,8 @@ class GeneroController extends PeliculasDisponiblesController{
     $this->model->eliminarGenero($id_genero);
   }
   function crearGenero(){
-    $valor = $_POST["valorGenero"];
-    $this->model->crearGenero($valor);
+    $genero = $_POST["genero"];
+    $this->model->crearGenero($genero);
   }
 }
  ?>

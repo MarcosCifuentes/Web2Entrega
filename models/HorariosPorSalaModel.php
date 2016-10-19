@@ -17,13 +17,12 @@ class HorariosPorSalaModel
 
       return $horarios;
     }
-    function agregarPelicula($nuevapelicula){
-        $sentencia = $this->db->prepare("INSERT INTO pelicula(fk_pelicula,sala,horario) VALUES(:pelicula,:sala,:horario)");
-        $sentencia->execute(array($horario));
-        $id_horario = $this->db->lastInsertId();
+    function agregarHorario($pelicula,$sala,$horario){
+        $sentencia = $this->db->prepare("INSERT INTO horario(pelicula,sala,horario) VALUES(?,?,?)");
+        $sentencia->execute(array($pelicula,$sala,$horario));
   }
 
-    function eliminarPelicula($id_horario){
+    function eliminarHorario($id_horario){
       $sentencia = $this->db->prepare("delete from horario where id_horario=?");
       $sentencia->execute(array($id_horario));
       return $sentencia->rowCount();

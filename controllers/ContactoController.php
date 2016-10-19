@@ -12,23 +12,25 @@ class  ContactoController
     $this->model = new ContactoModel();
     $this->vista = new ContactoView();
   }
-  function mostrar(){
+  function mostrarMensajes(){
     $contactos=$this->model->getMensajes();
-    $this->vista->mostrar($contactos);
+    $this->vista->mostrarMensajes($contactos);
   }
 
   function enviarMensaje(){
-    if(isset($_POST['nombre y apellido'])&&($_POST['nombre y apellido'])!=""){
-      $nombreyapellido = $_POST['nombre y apellido'];
+      $nombreyapellido = $_POST['nombreyapellido'];
       $email = $_POST['email'];
       $mensaje =  $_POST['mensaje'];
-      $this->modelo->enviarMensaje($nuevomensaje);
-      }
-}
+      if (($nombreyapellido!="")&&($email!="")&&($mensaje!="")) {
+      $this->model->enviarMensaje($nombreyapellido,$email,$mensaje);
+    }
+    $this->mostrarMensajes();
+  }
 
   function eliminarMensaje(){
     $key = $_GET['id_contacto'];
     $this->modelo->eliminarMensaje($key);
+    $this->mostrarMensajes();
   }
 }
  ?>

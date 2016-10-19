@@ -36,11 +36,19 @@ class  PeliculasDisponiblesController{
     }
     $this->mostrarPeliculas();
 }
+
+function mostrarListaPeliculas(){
+  $peliculas = $this->model->getPeliculas();
+  $generos = $this->modelGenero->getGeneros();
+  $this->vista->mostrarPeliculas($peliculas, $generos);
 }
+
   function eliminarPelicula(){
     $key = $_GET['id_pelicula'];
-    $this->modelo->eliminarPelicula($key);
+    $this->model->eliminarPelicula($key);
+    $this->mostrarListaPeliculas();
   }
 
+}
 
  ?>

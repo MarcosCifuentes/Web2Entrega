@@ -8,7 +8,10 @@
       <li>{$pelicula['fk_id_genero']}</li>
       <li>{$pelicula['duracion']}</li>
       <li>{$pelicula['descripcion']}</li>
-      <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idturno="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eliminar Pelicula</a>
+      <div class="panel">
+      <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+      <a class="js-visibilidad" id="editarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+      </div>
     </ul>
   </li>
   {/foreach}

@@ -8,7 +8,7 @@ private $smarty;
   $this->smarty = new Smarty();
   }
 
-  function mostrar($horarios){
+  function mostrarHorarios($horarios){
     $this->smarty->assign('horarios',$horarios);
     $this->smarty->display('templates/horariosporsala.tpl');
   }

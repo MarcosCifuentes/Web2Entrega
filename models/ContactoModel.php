@@ -18,10 +18,14 @@ class ContactoModel
       return $contactos;
     }
 
+    function enviarMensaje($nombreyapellido,$email,$mensaje){
+        $sentencia = $this->db->prepare("INSERT INTO contacto(nombreyapellido,email,mensaje) VALUES(?,?,?)");
+        $sentencia->execute(array($nombreyapellido,$email,$mensaje));
+  }
+
   function eliminarMensaje($id_contacto){
     $sentencia = $this->db->prepare("delete from contacto where id_contacto=?");
     $sentencia->execute(array($id_contacto));
-    return $sentencia->rowCount();
   }
 }
 

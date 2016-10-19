@@ -4,9 +4,9 @@ class GeneroModel extends PeliculasDisponiblesModel{
   function __construct(){
     parent::__construct();
   }
-  function buscarPeliculasGenero($fk_id_genero){
+  function mostrarPeliculasGenero($id_genero){
     $sentencia = $this->db->prepare("select * from pelicula where fk_id_genero=?");
-    $sentencia->execute(array($fk_id_genero));
+    $sentencia->execute(array($id_genero));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
   function getGeneros(){

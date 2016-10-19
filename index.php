@@ -3,12 +3,14 @@ require('controllers/CinemaController.php');
 require('controllers/ContactoController.php');
 require('controllers/HorariosPorSalaController.php');
 require('controllers/PeliculasDisponiblesController.php');
+require('controllers/GeneroController.php');
 require('config/ConfigApp.php');
 
 $cinemaController = new CinemaController();
 $contactoController = new ContactoController();
 $horariosPorSalaController = new HorariosPorSalaController();
 $peliculasDisponiblesController = new PeliculasDisponiblesController();
+$generoController = new GeneroController();
 
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
   $cinemaController->iniciar();
@@ -21,24 +23,39 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$ACTION_MOSTRAR_HORARIOS_POR_SALA:
-  $horariosPorSalaController->mostrar();
+  $horariosPorSalaController->mostrarHorarios();
   break;
 
   case ConfigApp::$ACTION_MOSTRAR_CONTACTO:
-  $contactoController->mostrar();
+  $contactoController->mostrarMensajes();
   break;
 
   case ConfigApp::$ACTION_MOSTRAR_PELICULAS_DISPONIBLES:
   $peliculasDisponiblesController->mostrarPeliculas();
   break;
 
+  case ConfigApp::$ACTION_MOSTRAR_PELICULAS_GENERO:
+  $generoController->iniciar();
+  break;
+
+  case ConfigApp::$ACTION_LISTAR_PELICULAS_GENERO:
+  $generoController->mostrarPeliculasGenero();
+  break;
+
   case ConfigApp::$ACTION_AGREGAR_PELICULA:
   $peliculasDisponiblesController->agregarPelicula();
   break;
 
+  case ConfigApp::$ACTION_AGREGAR_HORARIO:
+  $horariosPorSalaController->agregarHorario();
+  break;
+
   case ConfigApp::$ACTION_ELIMINAR_PELICULA:
   $peliculasDisponiblesController->eliminarPelicula();
-  $horariosPorSalaController->eliminarPelicula();
+  break;
+
+  case ConfigApp::$ACTION_ELIMINAR_HORARIO:
+  $horariosPorSalaController->eliminarHorario();
   break;
 
   case ConfigApp::$ACTION_ELIMINAR_MENSAJE:

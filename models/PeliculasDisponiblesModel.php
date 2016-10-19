@@ -29,7 +29,6 @@ function __construct()
   function eliminarPelicula($pelicula){
     $sentencia = $this->db->prepare("delete from pelicula where id_pelicula=?");
     $sentencia->execute(array($pelicula));
-    return $sentencia->rowCount();
   }
 
   function getGenero($fk_id_genero) {

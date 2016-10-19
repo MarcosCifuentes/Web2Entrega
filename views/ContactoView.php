@@ -8,7 +8,7 @@ private $smarty;
   $this->smarty = new Smarty();
   }
 
-  function mostrar($contactos){
+  function mostrarMensajes($contactos){
     $this->smarty->assign('contactos',$contactos);
     $this->smarty->display('templates/contacto.tpl');
   }
