@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
   function Cargar(accion) {
     var data = {
       action : accion
@@ -10,6 +11,7 @@ $(document).ready(function() {
       data: data,
       success: function(dataDevuelta){
         $('#js-pisar').html(dataDevuelta);
+        $(".js-visibilidad").hide();
       },
       error: function() {
         alert('Error');
@@ -18,7 +20,6 @@ $(document).ready(function() {
 
 
   }
-
 
   Cargar('mostrar_home');
 
@@ -45,6 +46,12 @@ $(document).ready(function() {
   $('#js-contacto').on("click",function(ev){
     Cargar('mostrar_contacto');
     ev.preventDefault();
+  });
+
+  $('#js-admin').on("click",function(){
+    event.preventDefault();
+      $(".js-visibilidad").toggle();
+
   });
 
   $(document).on('submit',"#formPelicula",function () {
@@ -99,7 +106,7 @@ $(document).ready(function() {
   event.preventDefault();
   var genero = $('#dropdownGenero option:selected').val();
   formData = new FormData(this);
-  formData.append('generos',genero);
+  formData.append('genero',genero);
   $.ajax({
     method: "POST",
     url: "index.php?action=listar_peliculas_genero",
@@ -113,15 +120,14 @@ $(document).ready(function() {
   });
 });
 
-  $('#eliminarPelicula').click(function(){
-  event.preventDefault();
-  $.get( "index.php?action=eliminar_pelicula",{ id_pelicula: $(this).attr("data-idpelicula") }, function(data) {
-    $('#js-pisar').html(data);
-    });
+$(document).on("click",'#eliminarPelicula', function(){
+   event.preventDefault();
+   $.get( "index.php?action=eliminar_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
+     $('.js-pisar').html(data);
+   });
+ });
 
-  });
-
-  $('#eliminarPeliculaHorario').click(function(){
+  $(document).on("click",'#eliminarHorario', function(){
   event.preventDefault();
   $.get( "index.php?action=eliminar_horario",{ id_horario: $(this).attr("data-idhorario") }, function(data) {
     $('#js-pisar').html(data);
@@ -129,13 +135,12 @@ $(document).ready(function() {
 
   });
 
-  $('#eliminarMensaje').click(function(){
+$(document).on("click",'#eliminarMensaje', function(){
   event.preventDefault();
   $.get( "index.php?action=eliminar_mensaje",{ id_contacto: $(this).attr("data-idcontacto") }, function(data) {
     $('#js-pisar').html(data);
     });
 
   });
-
 
 });

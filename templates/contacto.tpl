@@ -1,4 +1,4 @@
-<div class="js-visibilidad">
+<div>
 <h2>Envienos Su Mensaje</h2>
     <form id="formContacto" action="enviar_mensaje" method="post" enctype="multipart/form-data">
       <input type="text" name="nombreyapellido"  required value="" placeholder="Nombre y Apellido">
@@ -8,6 +8,7 @@
     </form>
 </div>
 
+<div class="js-visibilidad">
 <h1>Mensajes Recibidos</h1>
 <table class="table">
   <thead>
@@ -36,3 +37,4 @@
       {/foreach}
   </tbody>
 </table>
+</div>

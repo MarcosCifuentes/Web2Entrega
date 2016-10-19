@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 04:38:39
+/* Smarty version 3.1.30, created on 2016-10-19 16:07:20
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\peliculasdisponibles.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5806dcaf1c5560_63556781',
+  'unifunc' => 'content_58077e18dce8c5_95041795',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '209dc13a6265dfaa7d4f2fad451d330a9a0958fc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\peliculasdisponibles.tpl',
-      1 => 1476844713,
+      1 => 1476883619,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5806dcaf1c5560_63556781 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58077e18dce8c5_95041795 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Peliculas Disponibles</h1>
 <ul class="list-group">
@@ -43,9 +43,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['index']->value => $_smarty_tpl->tpl_v
 </li>
       <div class="panel">
       <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idpelicula="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['id_pelicula'];?>
-"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+"><span class="glyphicon glyphicon-remove" ></span></a>
       <a class="js-visibilidad" id="editarPelicula" href="#" data-idpelicula="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['id_pelicula'];?>
-"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+"><span class="glyphicon glyphicon-pencil" ></span></a>
       </div>
     </ul>
   </li>

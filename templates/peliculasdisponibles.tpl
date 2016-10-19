@@ -9,8 +9,8 @@
       <li>{$pelicula['duracion']}</li>
       <li>{$pelicula['descripcion']}</li>
       <div class="panel">
-      <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-      <a class="js-visibilidad" id="editarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+      <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" ></span></a>
+      <a class="js-visibilidad" id="editarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-pencil" ></span></a>
       </div>
     </ul>
   </li>

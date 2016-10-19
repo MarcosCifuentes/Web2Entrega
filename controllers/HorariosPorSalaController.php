@@ -14,8 +14,8 @@ class  HorariosPorSalaController{
   }
 
   function mostrarHorarios(){
-    $peliculas=$this->model->getHorarios();
-    $this->vista->mostrarHorarios($peliculas);
+    $horarios=$this->model->getHorarios();
+    $this->vista->mostrarHorarios($horarios);
 
   }
   function agregarHorario(){
@@ -32,7 +32,7 @@ class  HorariosPorSalaController{
 
   function eliminarHorario(){
     $key = $_GET['id_horario'];
-    $this->modelo->eliminarHorario($key);
+    $this->model->eliminarHorario($key);
     $this->mostrarHorarios();
   }
 }

@@ -25,7 +25,6 @@ class HorariosPorSalaModel
     function eliminarHorario($id_horario){
       $sentencia = $this->db->prepare("delete from horario where id_horario=?");
       $sentencia->execute(array($id_horario));
-      return $sentencia->rowCount();
     }
 }
 

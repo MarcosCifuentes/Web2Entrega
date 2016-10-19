@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-19 02:51:13
+/* Smarty version 3.1.30, created on 2016-10-19 16:07:19
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\home.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5806c381b82e06_48126166',
+  'unifunc' => 'content_58077e17879964_48499840',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5806c381b82e06_48126166 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58077e17879964_48499840 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->

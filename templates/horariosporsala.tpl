@@ -21,8 +21,8 @@
           {$horario['horario']}
         </td>
         <td>
-          <a class="js-visibilidad" id="eliminarPeliculaHorario" href="#" data-idhorario="{$pelicula['id_horario']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-          <a class="js-visibilidad" id="editarPeliculaHorario" href="#" data-idhorario="{$pelicula['id_horario']}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+          <a class="js-visibilidad" id="eliminarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
+          <a class="js-visibilidad" id="editarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
       </tr>
       {/foreach}
