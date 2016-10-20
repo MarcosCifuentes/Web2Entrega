@@ -10,19 +10,19 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="./images/foto.jpg" alt="Chania">
+      <img src="./images/combo1.jpg" alt="Combo1">
     </div>
 
     <div class="item">
-      <img src="" alt="Chania">
+      <img src="./images/combo2.jpg"alt="Combo2">
     </div>
 
     <div class="item">
-      <img src="" alt="Flower">
+      <img src="./images/combo3.jpg" alt="Combo3">
     </div>
 
     <div class="item">
-      <img src="" alt="Flower">
+      <img src="./images/combo4.jpg" alt="Combo4">
     </div>
   </div>
 
@@ -41,16 +41,20 @@
 
   <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-4">
-      <p>Promo 1</p>
+    <div class="col-md-3">
+      <p>Incluye: 1 Bag Mediano de Pochoclos + 1 Gaseosa + 1 Vaso Litro Coleccionable + 1 recarga de pochoclos</p>
 
     </div>
-    <div class="col-md-4">
-      <p>Promo 2</p>
+    <div class="col-md-3">
+      <p>Todos los jueves 2 x 1</p>
 
    </div>
-    <div class="col-md-4">
-      <p>Promo 3</p>
+    <div class="col-md-3">
+      <p>15% de descuento con con Easy club y LosAndes club</p>
+
+    </div>
+    <div class="col-md-3">
+      <p>2 boletos + 2 refrescos grandes  + pochoclos grandes</p>
 
     </div>
   </div>

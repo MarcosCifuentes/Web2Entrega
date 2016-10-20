@@ -37,6 +37,11 @@ function __construct()
   $genero=$sentencia->fetch(PDO::FETCH_ASSOC)["genero"];
   return $genero;
 }
+function getGeneros(){
+  $sentencia = $this->db->prepare("select genero from genero");
+  $sentencia->execute();
+  return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+}
 }
 
 

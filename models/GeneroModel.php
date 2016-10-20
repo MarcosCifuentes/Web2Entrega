@@ -11,7 +11,7 @@ class GeneroModel extends PeliculasDisponiblesModel{
   }
 
   function getGeneros(){
-    $sentencia = $this->db->prepare("select * from genero");
+    $sentencia = $this->db->prepare("select genero from genero");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

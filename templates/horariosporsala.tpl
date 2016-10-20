@@ -37,3 +37,13 @@
       <input type="submit" name="Agregar" id="agregarHorario">
     </form>
 </div>
+<div class="editorHorario">
+      <h2>Editar Pelicula</h2>
+        <form id="formEditHorario" action="editar_horario" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="idhorario"  value="">
+          <input type="text" name="pelicula"  required value="" placeholder="pelicula">
+          <input type="text" name="sala"  required value="" placeholder="sala">
+		  <input type="text" name="horario"  required value="" placeholder="horario">
+          <input type="submit" name="Editar" id="editarHora">
+        </form>
+      </div>

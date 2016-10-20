@@ -33,7 +33,8 @@ class  PeliculasDisponiblesController{
       $imagen = $_FILES['imagen'];
       if (isset($genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
       $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagen);
-    }
+	  }
+
     $this->mostrarPeliculas();
 }
 
