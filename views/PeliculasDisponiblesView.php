@@ -9,6 +9,8 @@ protected $smarty;
   }
 
   function mostrarPeliculas($peliculas, $generos){
+    print_r($peliculas);
+    print_r($generos);
   $this->smarty->assign("peliculas",$peliculas);
   $this->smarty->assign("generos",$generos);
   $this->smarty->display("peliculasdisponibles.tpl");

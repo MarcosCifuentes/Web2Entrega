@@ -26,7 +26,7 @@
       <select class="form-control"  name="genero">
         <option value="">Elegir Genero</option>
         {foreach from=$generos item=genero}
-        <option value="{$genero['id_genero']}">{$genero['genero']}</option>
+        <option value="{$genero['genero']}">{$genero['genero']}</option>
         {/foreach}
         </select>
         </div>

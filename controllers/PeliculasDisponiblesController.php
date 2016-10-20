@@ -1,26 +1,20 @@
 <?php
-include_once('views/PeliculasDisponiblesView.php');
-include_once ('models/PeliculasDisponiblesModel.php');
-include_once('models/GeneroModel.php');
-include_once('views/GeneroView.php');
+require_once('views/PeliculasDisponiblesView.php');
+require_once ('models/PeliculasDisponiblesModel.php');
 
 class  PeliculasDisponiblesController{
-
+  
   protected $vista;
   protected $model;
-  protected $modelGenero;
-  protected $vistaGenero;
 
   function __construct(){
     $this->model = new PeliculasDisponiblesModel();
     $this->vista = new PeliculasDisponiblesView();
-    $this->modelGenero = new GeneroModel();
-    $this->vistaGenero = new GeneroView();
   }
 
   function mostrarPeliculas(){
   $peliculas = $this->model->getPeliculas();
-  $generos = $this->modelGenero->getGeneros();
+  $generos = $this->model->getGeneros();
   $this->vista->mostrarPeliculas($peliculas, $generos);
 }
 
