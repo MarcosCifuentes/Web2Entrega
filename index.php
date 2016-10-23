@@ -30,35 +30,51 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $contactoController->mostrarMensajes();
   break;
 
-  case ConfigApp::$ACTION_MOSTRAR_PELICULAS_DISPONIBLES:
-  $peliculasDisponiblesController->mostrarPeliculas();
-  break;
-
   case ConfigApp::$ACTION_MOSTRAR_PELICULAS_GENERO:
   $generoController->iniciar();
   break;
 
-  case ConfigApp::$ACTION_AGREGAR_GENERO:
-  $generoController->agregarGenero();
-  break;
-
-  case ConfigApp::$ACTION_LISTAR_PELICULAS_GENERO:
-  $generoController->mostrarPeliculasGenero();
+  case ConfigApp::$ACTION_MOSTRAR_PELICULAS_DISPONIBLES:
+  $peliculasDisponiblesController->mostrarPeliculas();
   break;
 
   case ConfigApp::$ACTION_AGREGAR_PELICULA:
   $peliculasDisponiblesController->agregarPelicula();
   break;
 
-  case ConfigApp::$ACTION_AGREGAR_HORARIO:
-  $horariosPorSalaController->agregarHorario();
-  break;
-
   case ConfigApp::$ACTION_ELIMINAR_PELICULA:
   $peliculasDisponiblesController->eliminarPelicula();
   break;
 
+  case ConfigApp::$ACTION_EDITAR_PELICULA:
+  $horariosPorSalaController->eliminarHorario();
+  break;
+
+  case ConfigApp::$ACTION_LISTAR_PELICULAS_GENERO:
+  $generoController->mostrarPeliculasGenero();
+  break;
+
+  case ConfigApp::$ACTION_AGREGAR_GENERO:
+  $generoController->agregarGenero();
+  break;
+
+  case ConfigApp::$ACTION_ELIMINAR_GENERO:
+  $horariosPorSalaController->eliminarHorario();
+  break;
+
+  case ConfigApp::$ACTION_EDITAR_GENERO:
+  $horariosPorSalaController->eliminarHorario();
+  break;
+
+  case ConfigApp::$ACTION_AGREGAR_HORARIO:
+  $horariosPorSalaController->agregarHorario();
+  break;
+
   case ConfigApp::$ACTION_ELIMINAR_HORARIO:
+  $horariosPorSalaController->eliminarHorario();
+  break;
+
+  case ConfigApp::$ACTION_EDITAR_HORARIO:
   $horariosPorSalaController->eliminarHorario();
   break;
 

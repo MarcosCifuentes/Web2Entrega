@@ -1,14 +1,11 @@
 <?php
 
-class HorariosPorSalaModel
-{
-  private $db;
+include_once ('models/Model.php');
 
-  function __construct()
-  {
-    $this->db = new PDO('mysql:host=localhost;dbname=cinema_false;charset=utf8', 'root', '');
-
-  }
+class HorariosPorSalaModel extends Model{
+  function __construct(){
+    parent::__construct();
+}
 
   function getHorarios(){
       $sentencia = $this->db->prepare( "select * from horario");

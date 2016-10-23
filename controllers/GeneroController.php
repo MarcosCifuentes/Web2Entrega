@@ -6,10 +6,14 @@ require_once ('models/GeneroModel.php');
 
 class GeneroController extends PeliculasDisponiblesController{
   protected $model;
+  protected $modelPelicula;
+
   function __construct(){
     parent::__construct();
     $this->view = new GeneroView();
     $this->model = new GeneroModel();
+    $this->modelPelicula = new PeliculasDisponiblesModel();
+
   }
   function iniciar(){
     $generos = $this->getGeneros();
@@ -34,6 +38,7 @@ class GeneroController extends PeliculasDisponiblesController{
   function eliminarGenero(){
     $id_genero = $_GET["id_genero"];
     $this->model->eliminarGenero($id_genero);
+    $this->modelPelicula->eliminarPeliculaGenero($id_genero);
   }
   function agregarGenero(){
     $genero = $_POST["genero"];

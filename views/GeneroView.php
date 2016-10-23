@@ -11,7 +11,7 @@ class GeneroView extends PeliculasDisponiblesView{
   }
   function mostrarPeliculasGenero($generos){
     $this->smarty->assign("generos", $generos);
-    $this->smarty->display("filtroPeliculas.tpl");
+    $this->smarty->display("filtropeliculas.tpl");
   }
 
 }

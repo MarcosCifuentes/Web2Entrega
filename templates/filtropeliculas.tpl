@@ -5,7 +5,7 @@
         {$genero['titulo']}
         <ul>
           <li><img src="{$genero['imagen']}" alt="foto"/></li>
-          <li>{$genero['fk_id_genero']}</li>
+          <li>{$genero['genero']}</li>
           <li>{$genero['duracion']}</li>
           <li>{$genero['descripcion']}</li>
         </ul>

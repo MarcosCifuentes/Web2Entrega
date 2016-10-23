@@ -1,15 +1,11 @@
 <?php
 
-class ContactoModel
-{
-  private $db;
+include_once ('models/Model.php');
 
-  function __construct()
-  {
-    $this->db = new PDO('mysql:host=localhost;dbname=cinema_false;charset=utf8', 'root', '');
-
-  }
-
+class ContactoModel extends Model{
+  function __construct(){
+    parent::__construct();
+}
   function getMensajes(){
       $sentencia = $this->db->prepare( "select * from contacto");
       $sentencia->execute();

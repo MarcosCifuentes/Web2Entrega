@@ -5,7 +5,7 @@
     <h2>{$pelicula['titulo']}</h2>
     <ul>
       <li><img src="{$pelicula['imagen']}" alt="foto"/></li>
-      <li><h4>Genero</h4>{$pelicula['fk_id_genero']}</li>
+      <li><h4>Genero</h4>{$pelicula['genero']}</li>
       <li><h4>Duracion</h4>{$pelicula['duracion']}<p>minutos</p></li>
       <li><h4>Descripcion</h4>{$pelicula['descripcion']}</li>
       <div class="panel">
@@ -26,7 +26,7 @@
       <select class="form-control"  name="genero">
         <option value="">Elegir Genero</option>
         {foreach from=$generos item=genero}
-        <option value="{$genero['genero']}">{$genero['genero']}</option>
+        <option value="{$genero['id_genero']}">{$genero['genero']}</option>
         {/foreach}
         </select>
         </div>
