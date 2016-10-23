@@ -11,7 +11,6 @@ $(document).ready(function() {
       data: data,
       success: function(dataDevuelta){
         $('#js-pisar').html(dataDevuelta);
-        $(".js-visibilidad").hide();
       },
       error: function() {
         alert('Error');
@@ -48,12 +47,6 @@ $(document).ready(function() {
     ev.preventDefault();
   });
 
-  $('#js-admin').on("click",function(){
-    event.preventDefault();
-      $(".js-visibilidad").toggle();
-	  $(".editorPelicula").hide();
-
-  });
 // darle los valores a los elementos del formulario
   $('.editarPelicula').on("click",function(){
     event.preventDefault();
@@ -83,14 +76,16 @@ $(document).ready(function() {
       processData: false,
       success: function(data) {
         $("#js-pisar").html(data);
-		
+
       }
     });
   });
 
   $(document).on('submit',"#formHorario",function () {
     event.preventDefault();
+    var titulo = $('#dropdownPelicula option:selected').val();
     formData = new FormData(this);
+    formData.append('titulo',titulo);
     $.ajax({
       method: "POST",
       url: "index.php?action=agregar_horario",
@@ -152,6 +147,25 @@ $(document).ready(function() {
       $(".filtroPelicula").html(data);
     }
   });
+});
+
+
+$(document).on('submit','#eliminar_peliculas_genero',function () {
+event.preventDefault();
+var genero = $('#dropdownEliminarGenero option:selected').val();
+formData = new FormData(this);
+formData.append('genero',genero);
+$.ajax({
+  method: "POST",
+  url: "index.php?action=eliminar_genero",
+  data: formData,
+  contentType: false,
+  cache: false,
+  processData: false,
+  success: function(data) {
+    $("#js-pisar").html(data);
+  }
+});
 });
 
 $(document).on("click",'#eliminarPelicula', function(){

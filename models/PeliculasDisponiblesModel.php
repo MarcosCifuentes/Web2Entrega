@@ -34,9 +34,21 @@ function __construct(){
 
   function eliminarPeliculaGenero($id_genero){
     $sentencia = $this->db->prepare("delete from pelicula where fk_id_genero=?");
-    $sentencia->execute(array($pelicula));
+    $sentencia->execute(array($id_genero));
   }
 
+  function getPeliculasHorario(){
+    $sentencia = $this->db->prepare("select * from pelicula");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function getPeliculaHorario($fk_pelicula) {
+  $sentencia = $this->db->prepare("select titulo from pelicula where id_pelicula = ?");
+  $sentencia->execute(array($fk_pelicula));
+  $titulo=$sentencia->fetch(PDO::FETCH_ASSOC)["titulo"];
+  return $titulo;
+}
 
 }
 ?>

@@ -1,4 +1,5 @@
 <div class="row">
+  <h1>Buscar Peliculas por Genero</h1>
   <div class="col-2-md botones">
     <form class="" id="peliculas_genero" method="post" enctype="multipart/form-data">
       <select name="genero" id="dropdownGenero">
@@ -20,9 +21,10 @@
     </form>
   </div>
   <div class="row">
+    <h2>Eliminar Genero</h2>
     <div class="col-2-md botones">
       <form class="" id="eliminar_peliculas_genero" method="post" enctype="multipart/form-data">
-        <select name="genero" id="dropdownGenero">
+        <select name="genero" id="dropdownEliminarGenero">
           {foreach from=$generos item=genero}
           <option value="{$genero['id_genero']}">{$genero['genero']}</option>
           {/foreach}

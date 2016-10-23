@@ -21,7 +21,7 @@ class  ContactoController
       $nombreyapellido = $_POST['nombreyapellido'];
       $email = $_POST['email'];
       $mensaje =  $_POST['mensaje'];
-      if (($nombreyapellido!="")&&($email!="")&&($mensaje!="")) {
+      if (isset($nombreyapellido,$email,$mensaje)&&($nombreyapellido!="")&&($email!="")&&($mensaje!="")) {
       $this->model->enviarMensaje($nombreyapellido,$email,$mensaje);
     }
     $this->mostrarMensajes();

@@ -31,7 +31,14 @@
 <div class="js-visibilidad">
 <h2>Agregar Horario</h2>
     <form id="formHorario" action="agregar_horario" method="post" enctype="multipart/form-data">
-      <input type="text" name="pelicula"  required value="" placeholder="Pelicula">
+      <div class="">Pelicula:
+      <select class="form-control" id="dropdownPelicula" name="genero">
+        <option value="">Elegir Pelicula</option>
+        {foreach from=$peliculas item=pelicula}
+        <option value="{$pelicula['id_pelicula']}">{$pelicula['titulo']}</option>
+        {/foreach}
+        </select>
+        </div>
       <input type="text" name="sala"  required value="" placeholder="Sala">
       <input type="text" name="horario"  required value="" placeholder="Horario">
       <input type="submit" name="Agregar" id="agregarHorario">

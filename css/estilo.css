@@ -1,6 +1,6 @@
 body{
 background-image: url(../images/fondo.png);*/
-background-attachment: scroll;
+background-attachment: fixed;
 }
 
 nav{

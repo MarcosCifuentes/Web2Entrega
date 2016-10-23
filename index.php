@@ -59,7 +59,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$ACTION_ELIMINAR_GENERO:
-  $horariosPorSalaController->eliminarHorario();
+  $generoController->eliminarGenero();
   break;
 
   case ConfigApp::$ACTION_EDITAR_GENERO:
