@@ -17,23 +17,24 @@ class GeneroModel extends Model{
   }
 
   function getGenero($id_genero) {
-  $sentencia = $this->db->prepare("select genero from genero where id_genero = ?");
+  $sentencia = $this->db->prepare("SELECT genero from genero where id_genero = ?");
   $sentencia->execute(array($id_genero));
   $genero=$sentencia->fetch(PDO::FETCH_ASSOC)["genero"];
   return $genero;
 }
 
   function getGeneros(){
-    $sentencia = $this->db->prepare("select * from genero");
+    $sentencia = $this->db->prepare("SELECT * from genero");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-  function editarGenero($id_genero,$valor){
-    $sentencia = $this->db->prepare("update genero set genero=? where id_genero=? ");
-    $sentencia->execute(array($valor,$id_genero));
+
+  function editarGenero($id_genero,$genero){
+    $sentencia = $this->db->prepare("UPDATE genero set genero=? where id_genero=? ");
+    $sentencia->execute(array($genero,$id_genero));
   }
   function eliminarGenero($id_genero){
-    $sentencia = $this->db->prepare("delete from genero where id_genero=?");
+    $sentencia = $this->db->prepare("DELETE from genero where id_genero=?");
     $sentencia->execute(array($id_genero));
   }
   function agregarGenero($valor){

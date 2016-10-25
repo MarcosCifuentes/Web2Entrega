@@ -26,7 +26,22 @@ $(document).ready(function() {
     Cargar('mostrar_home');
     ev.preventDefault();
   });
-
+  $('#js-adminpeliculas').on("click",function(ev){
+    Cargar('mostrar_admin_peliculas');
+    ev.preventDefault();
+  });
+  $('#js-admingeneros').on("click",function(ev){
+    Cargar('mostrar_admin_generos');
+    ev.preventDefault();
+  });
+  $('#js-adminhorarios').on("click",function(ev){
+    Cargar('mostrar_admin_horarios');
+    ev.preventDefault();
+  });
+  $('#js-admincontacto').on("click",function(ev){
+    Cargar('mostrar_admin_contacto');
+    ev.preventDefault();
+  });
   $('#js-peliculasdisponibles').on("click",function(ev){
     Cargar('mostrar_peliculas_disponibles');
     ev.preventDefault();
@@ -48,21 +63,6 @@ $(document).ready(function() {
   });
 
 // darle los valores a los elementos del formulario
-  $('.editarPelicula').on("click",function(){
-    event.preventDefault();
-	var id =$(this).data("idpelicula");
-	var titulo =$(this).data("titulo");
-	var duracion =$(this).data("duracion");
-	var genero =$(this).data("genero");
-	var descripcion =$(this).data("descripcion");
-	var imagen =$(this).data("imagen");
-      $(".editorPelicula").toggle();
-	  $("#input_titulo").val(titulo);
-	  $("#input_duracion").val(duracuin);
-	  $("#input_id_genero").val(genero);
-	  $("#input_descripcion").val(descripcion);
-	  $("#input_imagen").val(imagen);
-  });
 
   $(document).on('submit',"#formPelicula",function () {
     event.preventDefault();
@@ -168,6 +168,47 @@ $.ajax({
 });
 });
 
+$(document).on('submit','.formulario',function () {
+event.preventDefault();
+formData = new FormData(this);
+var dir = $(this).attr("action");
+$.ajax({
+  method: "POST",
+  url: "index.php?action="+dir,
+  data: formData,
+  contentType: false,
+  cache: false,
+  processData: false,
+  success: function(data) {
+    $("#js-pisar").html(data);
+  }
+});
+});
+
+$(document).on('submit','#editorGenero',function () {
+event.preventDefault();
+formData = new FormData(this);
+var dir = $(this).attr("action");
+$.ajax({
+  method: "POST",
+  url: "index.php?action="+dir,
+  data: formData,
+  contentType: false,
+  cache: false,
+  processData: false,
+  success: function(data) {
+    $("#js-pisar").html(data);
+  }
+});
+});
+
+$(document).on("click",'#editorPelicula', function(){
+   event.preventDefault();
+   $.get( "index.php?action=editor_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
+     $('#js-pisar').html(data);
+   });
+ });
+
 $(document).on("click",'#eliminarPelicula', function(){
    event.preventDefault();
    $.get( "index.php?action=eliminar_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
@@ -191,12 +232,5 @@ $(document).on("click",'#eliminarMensaje', function(){
 
   });
 
-  $(document).on("click",'#eliminarMensaje', function(){
-  event.preventDefault();
-  $.get( "index.php?action=eliminar_mensaje",{ id_contacto: $(this).attr("data-idcontacto") }, function(data) {
-    $('#js-pisar').html(data);
-    });
-
-  });
 
 });

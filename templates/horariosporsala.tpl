@@ -45,7 +45,7 @@
     </form>
 </div>
 <div class="editorHorario">
-      <h2>Editar Pelicula</h2>
+      <h2>Editar Horario</h2>
         <form id="formEditHorario" action="editar_horario" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="idhorario"  value="">
           <input type="text" name="pelicula"  required value="" placeholder="pelicula">

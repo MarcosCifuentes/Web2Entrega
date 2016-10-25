@@ -1,5 +1,6 @@
 <?php
 require_once('views/PeliculasDisponiblesView.php');
+require_once('views/PeliculasDisponiblesAdminView.php');
 require_once ('models/PeliculasDisponiblesModel.php');
 require_once ('models/GeneroModel.php');
 
@@ -8,10 +9,12 @@ class  PeliculasDisponiblesController{
   protected $vista;
   protected $model;
   protected $modelGenero;
+  protected $vistaAdmin;
 
   function __construct(){
     $this->model = new PeliculasDisponiblesModel();
     $this->vista = new PeliculasDisponiblesView();
+    $this->vistaAdmin = new PeliculasDisponiblesAdminView();
     $this->modelGenero = new GeneroModel();
 
   }
@@ -21,6 +24,31 @@ class  PeliculasDisponiblesController{
   $generos = $this->modelGenero->getGeneros();
   $this->vista->mostrarPeliculas($peliculas, $generos);
 }
+
+
+  function editorPelicula(){
+    $id_pelicula = $_GET['id_pelicula'];
+    $pelicula = $this->model->getPelicula($id_pelicula);
+    $generos = $this->modelGenero->getGeneros();
+    $this->vistaAdmin->mostrarEditorPelicula($pelicula, $generos);
+  }
+
+  function editarPelicula(){
+    $id_pelicula = $_POST["id_pelicula"];
+    $titulo = $_POST["titulo"];
+    $duracion = $_POST["duracion"];
+    $genero = $_POST["genero"];
+    $descripcion = $_POST["descripcion"];
+    $this->model->editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion);
+    $this->mostrarPeliculasAdmin();
+  }
+
+  function mostrarPeliculasAdmin(){
+    $peliculas = $this->model->getPeliculas();
+    $generos = $this->modelGenero->getGeneros();
+    $admin = true;
+    $this->vistaAdmin->mostrarPeliculas($peliculas, $generos, $admin);
+  }
 
   function agregarPelicula(){
 
@@ -33,13 +61,13 @@ class  PeliculasDisponiblesController{
       $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagen);
 	  }
 
-    $this->mostrarPeliculas();
+    $this->mostrarPeliculasAdmin();
 }
 
   function eliminarPelicula(){
     $key = $_GET['id_pelicula'];
     $this->model->eliminarPelicula($key);
-    $this->mostrarPeliculas();
+    $this->mostrarPeliculasAdmin();
   }
 
 }

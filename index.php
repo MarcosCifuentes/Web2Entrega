@@ -38,6 +38,22 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $peliculasDisponiblesController->mostrarPeliculas();
   break;
 
+  case ConfigApp::$ACTION_MOSTRAR_ADMIN_PELICULAS:
+  $peliculasDisponiblesController->mostrarPeliculasAdmin();
+  break;
+
+  case ConfigApp::$ACTION_MOSTRAR_ADMIN_GENEROS:
+  $generoController->mostrarGeneroAdmin();
+  break;
+
+  case ConfigApp::$ACTION_MOSTRAR_ADMIN_HORARIOS:
+  $peliculasDisponiblesController->mostrarPeliculasAdmin();
+  break;
+
+  case ConfigApp::$ACTION_MOSTRAR_ADMIN_CONTACTO:
+  $peliculasDisponiblesController->mostrarPeliculasAdmin();
+  break;
+
   case ConfigApp::$ACTION_AGREGAR_PELICULA:
   $peliculasDisponiblesController->agregarPelicula();
   break;
@@ -46,8 +62,12 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $peliculasDisponiblesController->eliminarPelicula();
   break;
 
+  case ConfigApp::$ACTION_EDITOR_PELICULA:
+  $peliculasDisponiblesController->editorPelicula();
+  break;
+
   case ConfigApp::$ACTION_EDITAR_PELICULA:
-  $horariosPorSalaController->eliminarHorario();
+  $peliculasDisponiblesController->editarPelicula();
   break;
 
   case ConfigApp::$ACTION_LISTAR_PELICULAS_GENERO:
@@ -62,8 +82,12 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $generoController->eliminarGenero();
   break;
 
+  case ConfigApp::$ACTION_EDITOR_GENERO:
+  $generoController->editorGenero();
+  break;
+
   case ConfigApp::$ACTION_EDITAR_GENERO:
-  $horariosPorSalaController->eliminarHorario();
+  $generoController->editarGenero();
   break;
 
   case ConfigApp::$ACTION_AGREGAR_HORARIO:
@@ -72,6 +96,10 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
 
   case ConfigApp::$ACTION_ELIMINAR_HORARIO:
   $horariosPorSalaController->eliminarHorario();
+  break;
+
+  case ConfigApp::$ACTION_EDITOR_HORARIO:
+  $peliculasDisponiblesController->editorPelicula();
   break;
 
   case ConfigApp::$ACTION_EDITAR_HORARIO:

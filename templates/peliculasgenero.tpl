@@ -1,3 +1,4 @@
+{if !isset($admin)}
 <div class="row">
   <h1>Buscar Peliculas por Genero</h1>
   <div class="col-2-md botones">
@@ -13,13 +14,13 @@
 </div>
 <div class="filtroPelicula">
 </div>
-<div class="js-visibilidad">
+{/if}
+{if isset($admin)}
 <h2>Agregar Genero</h2>
     <form id="formGenero" action="agregar_genero" method="post" enctype="multipart/form-data">
       <input type="text" name="genero"  required value="" placeholder="Genero">
       <input type="submit" name="Agregar" id="agregarGenero">
     </form>
-  </div>
   <div class="row">
     <h2>Eliminar Genero</h2>
     <div class="col-2-md botones">
@@ -33,3 +34,16 @@
       </form>
     </div>
   </div>
+  <h2>Editar Genero</h2>
+    <form id="editorGenero" action="editor_genero" method="post" enctype="multipart/form-data">
+      <div class="">Genero:
+      <select class="form-control"  name="genero">
+        <option value="">Elegir Genero</option>
+        {foreach from=$generos item=genero}
+        <option value="{$genero['id_genero']}">{$genero['genero']}</option>
+        {/foreach}
+        </select>
+        </div>
+      <input type="submit" name="Editar" >
+    </form>
+{/if}
