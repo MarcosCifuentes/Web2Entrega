@@ -34,6 +34,6 @@
         </div>
       <textarea class="form-control" rows="8" type="text" name="descripcion" required value="" placeholder="descripcion"></textarea>
       <input type="file" name="imagen" required value="" single>
-      <input type="submit" name="Agregar" id="agregarPelicula">
+      <input type="submit" name="Agregar" value="Agregar Pelicula" id="agregarPelicula">
     </form>
 {/if}

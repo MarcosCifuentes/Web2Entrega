@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-24 00:51:58
+/* Smarty version 3.1.30, created on 2016-10-27 00:32:33
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\contacto.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_580d3f0e910ca0_28100197',
+  'unifunc' => 'content_58112f01695bf6_89572933',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_580d3f0e910ca0_28100197 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58112f01695bf6_89572933 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div>
 <h2>Envienos Su Mensaje</h2>

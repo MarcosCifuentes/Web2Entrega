@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-25 03:00:28
+/* Smarty version 3.1.30, created on 2016-10-27 00:32:29
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\peliculasdisponibles.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_580eaeac31b2c6_05054266',
+  'unifunc' => 'content_58112efdd085a3_45760485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '209dc13a6265dfaa7d4f2fad451d330a9a0958fc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\peliculasdisponibles.tpl',
-      1 => 1477349003,
+      1 => 1477521080,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_580eaeac31b2c6_05054266 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58112efdd085a3_45760485 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Peliculas Disponibles</h1>
 <ul class="list-group">
@@ -85,7 +85,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         </div>
       <textarea class="form-control" rows="8" type="text" name="descripcion" required value="" placeholder="descripcion"></textarea>
       <input type="file" name="imagen" required value="" single>
-      <input type="submit" name="Agregar" id="agregarPelicula">
+      <input type="submit" name="Agregar" value="Agregar Pelicula" id="agregarPelicula">
     </form>
 <?php }
 }

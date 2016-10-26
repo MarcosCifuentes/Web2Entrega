@@ -82,10 +82,6 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $generoController->eliminarGenero();
   break;
 
-  case ConfigApp::$ACTION_EDITOR_GENERO:
-  $generoController->editorGenero();
-  break;
-
   case ConfigApp::$ACTION_EDITAR_GENERO:
   $generoController->editarGenero();
   break;

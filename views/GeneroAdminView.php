@@ -14,13 +14,6 @@ class GeneroAdminView{
     $this->smarty->display("peliculasgenero.tpl");
   }
 
-  function mostrarEditorGenero($genero){
-    $this->smarty->assign("genero",$genero);
-    $this->smarty->display('editargenero.tpl');
-
-  }
-
-
 }
 
  ?>

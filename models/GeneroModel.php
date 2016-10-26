@@ -23,6 +23,13 @@ class GeneroModel extends Model{
   return $genero;
 }
 
+function getGeneroEdit($id_genero) {
+$sentencia = $this->db->prepare("SELECT id_genero from genero where id_genero = ?");
+$sentencia->execute(array($id_genero));
+$genero=$sentencia->fetch(PDO::FETCH_ASSOC)["genero"];
+return $genero;
+}
+
   function getGeneros(){
     $sentencia = $this->db->prepare("SELECT * from genero");
     $sentencia->execute();

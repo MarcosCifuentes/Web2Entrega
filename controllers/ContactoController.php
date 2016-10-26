@@ -29,8 +29,11 @@ class  ContactoController
 
   function eliminarMensaje(){
     $key = $_GET['id_contacto'];
+    if (isset($key)){
     $this->model->eliminarMensaje($key);
+    }
     $this->mostrarMensajes();
+
   }
 }
  ?>

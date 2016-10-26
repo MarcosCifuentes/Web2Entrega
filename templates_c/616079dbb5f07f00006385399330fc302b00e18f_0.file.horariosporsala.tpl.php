@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-24 00:57:21
+/* Smarty version 3.1.30, created on 2016-10-27 00:32:32
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\horariosporsala.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_580d4051c97bb3_14154263',
+  'unifunc' => 'content_58112f003e9522_27286765',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '616079dbb5f07f00006385399330fc302b00e18f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\horariosporsala.tpl',
-      1 => 1477263338,
+      1 => 1477357314,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_580d4051c97bb3_14154263 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58112f003e9522_27286765 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Sala y Horario</h1>
 <table class="table">
@@ -94,7 +94,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
     </form>
 </div>
 <div class="editorHorario">
-      <h2>Editar Pelicula</h2>
+      <h2>Editar Horario</h2>
         <form id="formEditHorario" action="editar_horario" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="idhorario"  value="">
           <input type="text" name="pelicula"  required value="" placeholder="pelicula">

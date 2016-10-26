@@ -34,28 +34,25 @@ class GeneroController extends PeliculasDisponiblesController{
     return $this->model->getGeneros();
   }
 
-  function editorGenero(){
-    $id_genero = $_POST['id_genero'];
-    $genero = $this->model->getGenero($id_genero);
-    $this->vistaAdmin->mostrarEditorGenero($genero);
-  }
-
   function editarGenero(){
     $id_genero = $_POST["id_genero"];
-    $genero = $_POST["genero"];
+    $genero = $_POST["generonuevo"];
     $this->modelGenero->editarGenero($id_genero,$genero);
+    $this->mostrarGeneroAdmin();
   }
   function eliminarGenero(){
     $key = $_POST["genero"];
+    if (isset($key)){
     $this->model->eliminarGenero($key);
     $this->modelPelicula->eliminarPeliculaGenero($key);
-    $this->iniciar();
+  }
+    $this->mostrarGeneroAdmin();
   }
   function agregarGenero(){
     $genero = $_POST["genero"];
     if(isset($genero)&&($genero!=="")) {
     $this->model->agregarGenero($genero);
-    $this->iniciar();
+    $this->mostrarGeneroAdmin();
   }
   }
   function mostrarGeneroAdmin(){

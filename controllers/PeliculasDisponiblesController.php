@@ -20,17 +20,19 @@ class  PeliculasDisponiblesController{
   }
 
   function mostrarPeliculas(){
-  $peliculas = $this->model->getPeliculas();
-  $generos = $this->modelGenero->getGeneros();
-  $this->vista->mostrarPeliculas($peliculas, $generos);
-}
+    $peliculas = $this->model->getPeliculas();
+    $generos = $this->modelGenero->getGeneros();
+    $this->vista->mostrarPeliculas($peliculas, $generos);
+  }
 
 
   function editorPelicula(){
     $id_pelicula = $_GET['id_pelicula'];
-    $pelicula = $this->model->getPelicula($id_pelicula);
-    $generos = $this->modelGenero->getGeneros();
-    $this->vistaAdmin->mostrarEditorPelicula($pelicula, $generos);
+    if (isset($id_pelicula)){
+      $pelicula = $this->model->getPelicula($id_pelicula);
+      $generos = $this->modelGenero->getGeneros();
+      $this->vistaAdmin->mostrarEditorPelicula($pelicula, $generos);
+    }
   }
 
   function editarPelicula(){
@@ -39,8 +41,11 @@ class  PeliculasDisponiblesController{
     $duracion = $_POST["duracion"];
     $genero = $_POST["genero"];
     $descripcion = $_POST["descripcion"];
+    if (isset($id_pelicula,$titulo,$duracion,$genero,$descripcion)){
     $this->model->editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion);
+    }
     $this->mostrarPeliculasAdmin();
+
   }
 
   function mostrarPeliculasAdmin(){
@@ -52,24 +57,26 @@ class  PeliculasDisponiblesController{
 
   function agregarPelicula(){
 
-      $titulo = $_POST['titulo'];
-      $descripcion = $_POST['descripcion'];
-      $duracion =  $_POST['duracion'];
-      $genero =  $_POST['genero'];
-      $imagen = $_FILES['imagen'];
-      if (isset($genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
+    $titulo = $_POST['titulo'];
+    $descripcion = $_POST['descripcion'];
+    $duracion =  $_POST['duracion'];
+    $genero =  $_POST['genero'];
+    $imagen = $_FILES['imagen'];
+    if (isset($genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
       $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagen);
-	  }
+    }
 
     $this->mostrarPeliculasAdmin();
-}
+  }
 
   function eliminarPelicula(){
     $key = $_GET['id_pelicula'];
+    if (isset($key)){
     $this->model->eliminarPelicula($key);
+  }
     $this->mostrarPeliculasAdmin();
   }
 
 }
 
- ?>
+?>

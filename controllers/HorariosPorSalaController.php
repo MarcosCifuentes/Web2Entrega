@@ -35,7 +35,9 @@ class  HorariosPorSalaController{
 
   function eliminarHorario(){
     $key = $_GET['id_horario'];
+    if (isset($key)){
     $this->model->eliminarHorario($key);
+  }
     $this->mostrarHorarios();
   }
 }

@@ -8,7 +8,7 @@
         <option value="{$genero['id_genero']}">{$genero['genero']}</option>
         {/foreach}
       </select>
-      <input type="submit" name="listar" value="Listar">
+      <input type="submit" name="listar" value="Listar por Genero">
     </form>
   </div>
 </div>
@@ -19,12 +19,13 @@
 <h2>Agregar Genero</h2>
     <form id="formGenero" action="agregar_genero" method="post" enctype="multipart/form-data">
       <input type="text" name="genero"  required value="" placeholder="Genero">
-      <input type="submit" name="Agregar" id="agregarGenero">
+      <input type="submit" name="Agregar" value="Agregar Genero" id="agregarGenero">
     </form>
   <div class="row">
     <h2>Eliminar Genero</h2>
     <div class="col-2-md botones">
       <form class="" id="eliminar_peliculas_genero" method="post" enctype="multipart/form-data">
+        <input  type="hidden" name="id_genero"  value="{$genero['id_genero']}">
         <select name="genero" id="dropdownEliminarGenero">
           {foreach from=$generos item=genero}
           <option value="{$genero['id_genero']}">{$genero['genero']}</option>
@@ -35,15 +36,16 @@
     </div>
   </div>
   <h2>Editar Genero</h2>
-    <form id="editorGenero" action="editor_genero" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="editar_genero" method="post" enctype="multipart/form-data">
       <div class="">Genero:
-      <select class="form-control"  name="genero">
+      <select class="form-control"  name="id_genero">
         <option value="">Elegir Genero</option>
         {foreach from=$generos item=genero}
-        <option value="{$genero['id_genero']}">{$genero['genero']}</option>
+        <option name="id_genero" value="{$genero['id_genero']}">{$genero['genero']}</option>
         {/foreach}
         </select>
+        <input  type="text" name="generonuevo"  required value="" placeholder="Genero">
         </div>
-      <input type="submit" name="Editar" >
+      <input type="submit" name="Editar" value="Editar Genero" >
     </form>
 {/if}

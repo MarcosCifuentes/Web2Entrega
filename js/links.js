@@ -185,23 +185,6 @@ $.ajax({
 });
 });
 
-$(document).on('submit','#editorGenero',function () {
-event.preventDefault();
-formData = new FormData(this);
-var dir = $(this).attr("action");
-$.ajax({
-  method: "POST",
-  url: "index.php?action="+dir,
-  data: formData,
-  contentType: false,
-  cache: false,
-  processData: false,
-  success: function(data) {
-    $("#js-pisar").html(data);
-  }
-});
-});
-
 $(document).on("click",'#editorPelicula', function(){
    event.preventDefault();
    $.get( "index.php?action=editor_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
