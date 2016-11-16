@@ -25,7 +25,7 @@ class GeneroController extends PeliculasDisponiblesController{
   function mostrarPeliculasGenero(){
     if(isset($_POST['genero'])) {
       $mostrar =  $_POST['genero'];
-      $genero= $this->model->mostrarPeliculasGenero($mostrar);
+      $genero= $this->modelPelicula->getPeliculasGenero($mostrar);
       $this->view->mostrarPeliculasGenero($genero);
     }
   }

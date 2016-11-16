@@ -61,9 +61,9 @@ class  PeliculasDisponiblesController{
     $descripcion = $_POST['descripcion'];
     $duracion =  $_POST['duracion'];
     $genero =  $_POST['genero'];
-    $imagen = $_FILES['imagen'];
-    if (isset($genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
-      $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagen);
+    $imagenes = $_FILES['imagenes'];
+    if (isset($imagenes,$genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
+      $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagenes);
     }
 
     $this->mostrarPeliculasAdmin();
@@ -73,6 +73,7 @@ class  PeliculasDisponiblesController{
     $key = $_GET['id_pelicula'];
     if (isset($key)){
     $this->model->eliminarPelicula($key);
+    $this->model->eliminarImagenes($key);
   }
     $this->mostrarPeliculasAdmin();
   }
