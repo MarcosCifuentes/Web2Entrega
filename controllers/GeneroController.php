@@ -43,8 +43,9 @@ class GeneroController extends PeliculasDisponiblesController{
   function eliminarGenero(){
     $key = $_POST["genero"];
     if (isset($key)){
-    $this->model->eliminarGenero($key);
     $this->modelPelicula->eliminarPeliculaGenero($key);
+    $this->model->eliminarGenero($key);
+
   }
     $this->mostrarGeneroAdmin();
   }

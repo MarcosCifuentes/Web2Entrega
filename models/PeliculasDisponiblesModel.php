@@ -73,7 +73,6 @@ function getPeliculasGenero($id_genero){
   }
 
   function eliminarPeliculaGenero($id_genero){
-    echo "entro";
     $sentencia = $this->db->prepare("SELECT from pelicula where fk_id_genero=?");
     $sentencia->execute(array($id_genero));
     while ($pelicula = $sentencia->fetch(PDO::FETCH_ASSOC)) {

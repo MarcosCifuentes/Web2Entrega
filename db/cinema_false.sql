@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2016 a las 00:31:40
+-- Tiempo de generación: 17-11-2016 a las 01:10:27
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -56,11 +56,9 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id_genero`, `genero`) VALUES
-(1, 'accion'),
-(2, 'terror'),
-(3, 'aventura'),
-(4, 'drama'),
-(7, 'ciencia ficcion');
+(13, 'accion'),
+(19, 'aventura'),
+(21, 'ciencia ficcion');
 
 -- --------------------------------------------------------
 
@@ -80,10 +78,21 @@ CREATE TABLE `horario` (
 --
 
 INSERT INTO `horario` (`id_horario`, `fk_pelicula`, `sala`, `horario`) VALUES
-(3, 32, '1', '20:30:00'),
 (4, 33, '2', '21:30:00'),
 (5, 32, '2', '18:00:00'),
 (6, 33, '1', '18:30:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagen`
+--
+
+CREATE TABLE `imagen` (
+  `id_imagen` int(11) NOT NULL,
+  `fk_id_pelicula` int(11) NOT NULL,
+  `path` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -96,17 +105,21 @@ CREATE TABLE `pelicula` (
   `titulo` varchar(50) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
   `duracion` int(11) NOT NULL,
-  `fk_id_genero` int(11) NOT NULL,
-  `imagen` varchar(100) NOT NULL
+  `fk_id_genero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `pelicula`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-INSERT INTO `pelicula` (`id_pelicula`, `titulo`, `descripcion`, `duracion`, `fk_id_genero`, `imagen`) VALUES
-(32, 'Inferno', 'Lorem', 123, 4, 'images/58112d5d45dc1_inferno.jpg'),
-(33, 'El Especialista', 'Lorem2', 200, 1, 'images/58112d7227012_elespecialista.jpg');
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `contrasenia` varchar(250) NOT NULL,
+  `privilegio` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Índices para tablas volcadas
@@ -131,10 +144,22 @@ ALTER TABLE `horario`
   ADD PRIMARY KEY (`id_horario`);
 
 --
+-- Indices de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD PRIMARY KEY (`id_imagen`);
+
+--
 -- Indices de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
   ADD PRIMARY KEY (`id_pelicula`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -149,17 +174,27 @@ ALTER TABLE `contacto`
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
   MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

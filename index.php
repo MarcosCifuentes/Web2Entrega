@@ -4,6 +4,7 @@ require('controllers/ContactoController.php');
 require('controllers/HorariosPorSalaController.php');
 require('controllers/PeliculasDisponiblesController.php');
 require('controllers/GeneroController.php');
+require('controllers/LoginController.php');
 require('config/ConfigApp.php');
 
 $cinemaController = new CinemaController();
@@ -11,6 +12,7 @@ $contactoController = new ContactoController();
 $horariosPorSalaController = new HorariosPorSalaController();
 $peliculasDisponiblesController = new PeliculasDisponiblesController();
 $generoController = new GeneroController();
+$loginController = new LoginController();
 
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
   $cinemaController->iniciar();
@@ -108,6 +110,22 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
 
   case ConfigApp::$ACTION_ENVIAR_MENSAJE:
   $contactoController->enviarMensaje();
+  break;
+
+  case ConfigApp::$ACTION_REGISTER:
+  $loginController->crearUsuario();
+  break;
+  case ConfigApp::$ACTION_MOSTRAR_LOGIN:
+  $loginController->mostrarPantallaLogin();
+  break;
+  case ConfigApp::$ACTION_LOGIN:
+  $LoginController->login();
+  break;
+  case ConfigApp::$ACTION_CERRAR_SESION:
+  $loginController->cerrarSesion();
+  break;
+  case ConfigApp::$ACTION_EDITAR_USUARIO:
+  $loginController->editarUsuario();
   break;
 
   default:

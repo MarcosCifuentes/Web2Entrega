@@ -28,6 +28,11 @@ class ConfigApp{
 
   public static $ACTION_ENVIAR_MENSAJE = 'enviar_mensaje';
   public static $ACTION_ELIMINAR_MENSAJE = 'eliminar_mensaje';
+
+  public static $ACTION_LOGIN = 'login';
+  public static $ACTION_REGISTER = 'register';
+  public static $ACTION_MOSTRAR_LOGIN = "mostrarLogin";
+  public static $ACTION_CERRAR_SESION = "cerrarSesion";
   }
 
  ?>
