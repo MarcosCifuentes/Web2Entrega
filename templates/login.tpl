@@ -11,20 +11,11 @@
   </div>
     <div class="panel">
       <h3>Crear Cuenta</h3>
-      <form class="formulario" action="crearUsuario" method="post">
-        <input type="email" name="user" value="" placeholder="E-mail">
+      <form class="formulario" action="register" method="post">
+        <input type="email" name="email" value="" placeholder="E-mail">
         <input type="password" name="pass" value="" placeholder="Contraseña">
-        <button type="submit" name="button">enviar</button>
+        <button type="submit" name="button">Crear</button>
       </form>
-
-
     </div>
-
-    <div class="panel">
-      <div class="panel">
-        {$msj}
-      </div>
-    </div>
-
 
 </div>

@@ -8,6 +8,9 @@
     </form>
 </div>
 
+{if isset($session) && ($privilegios == 1)}
+
+
 <div class="js-visibilidad">
 <h1>Mensajes Recibidos</h1>
 <table class="table">
@@ -16,6 +19,7 @@
       <th>Nombre y Apellido</th>
       <th>Email</th>
       <th>Mensaje</th>
+      <th>Configuracion</th>
       </tr>
     </thead>
     <tbody>
@@ -38,3 +42,4 @@
   </tbody>
 </table>
 </div>
+{/if}

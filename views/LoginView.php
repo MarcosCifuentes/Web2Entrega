@@ -1,15 +1,16 @@
-
 <?php
 require_once("libs/Smarty.class.php");
-class LoginView
-{
+
+class LoginView{
   protected $smarty;
+
   function __construct(){
     $this->smarty = new Smarty();
   }
-  function mostrarForm($msj){
-    $this->smarty->assign('msj', $msj);
+
+  function mostrarForm(){
     $this->smarty->display('login.tpl');
   }
+  
 }
- ?>
+?>

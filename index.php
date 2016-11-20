@@ -32,28 +32,12 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $contactoController->mostrarMensajes();
   break;
 
-  case ConfigApp::$ACTION_MOSTRAR_PELICULAS_GENERO:
-  $generoController->iniciar();
+  case ConfigApp::$ACTION_MOSTRAR_GENERO:
+  $generoController->mostrarGenero();
   break;
 
   case ConfigApp::$ACTION_MOSTRAR_PELICULAS_DISPONIBLES:
   $peliculasDisponiblesController->mostrarPeliculas();
-  break;
-
-  case ConfigApp::$ACTION_MOSTRAR_ADMIN_PELICULAS:
-  $peliculasDisponiblesController->mostrarPeliculasAdmin();
-  break;
-
-  case ConfigApp::$ACTION_MOSTRAR_ADMIN_GENEROS:
-  $generoController->mostrarGeneroAdmin();
-  break;
-
-  case ConfigApp::$ACTION_MOSTRAR_ADMIN_HORARIOS:
-  $peliculasDisponiblesController->mostrarPeliculasAdmin();
-  break;
-
-  case ConfigApp::$ACTION_MOSTRAR_ADMIN_CONTACTO:
-  $peliculasDisponiblesController->mostrarPeliculasAdmin();
   break;
 
   case ConfigApp::$ACTION_AGREGAR_PELICULA:
@@ -73,7 +57,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$ACTION_LISTAR_PELICULAS_GENERO:
-  $generoController->mostrarPeliculasGenero();
+  $generoController->listarPeliculasGenero();
   break;
 
   case ConfigApp::$ACTION_AGREGAR_GENERO:
@@ -97,7 +81,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$ACTION_EDITOR_HORARIO:
-  $peliculasDisponiblesController->editorPelicula();
+  $horariosPorSalaController->editorHorario();
   break;
 
   case ConfigApp::$ACTION_EDITAR_HORARIO:
@@ -113,23 +97,27 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$ACTION_REGISTER:
-  $loginController->crearUsuario();
+  $loginController->register();
   break;
+
   case ConfigApp::$ACTION_MOSTRAR_LOGIN:
   $loginController->mostrarPantallaLogin();
   break;
+
   case ConfigApp::$ACTION_LOGIN:
-  $LoginController->login();
+  $loginController->login();
   break;
+
   case ConfigApp::$ACTION_CERRAR_SESION:
-  $loginController->cerrarSesion();
+  $loginController->logout();
   break;
+
   case ConfigApp::$ACTION_EDITAR_USUARIO:
   $loginController->editarUsuario();
   break;
 
   default:
-  $cinemaController->iniciar();
+  echo 'No se encontro la pagina';
   break;
 }
 }

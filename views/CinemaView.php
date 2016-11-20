@@ -1,22 +1,22 @@
 <?php
 require_once('libs/Smarty.class.php');
 
-class CinemaView
-{
+class CinemaView{
   private $smarty;
-  function __construct()
-  {
+
+  function __construct(){
     $this->smarty = new Smarty();
   }
 
-  function mostrar () {
+  function mostrar ($session) {
+    $this->smarty->assign('session', $session);
     $this->smarty->display('index.tpl');
   }
+
   function mostrarContenido () {
     $this->smarty->display('home.tpl');
   }
 
-
 }
 
- ?>
+?>

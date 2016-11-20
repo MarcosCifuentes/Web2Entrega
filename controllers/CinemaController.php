@@ -1,24 +1,29 @@
 <?php
 require_once('views/CinemaView.php');
-
-class CinemaController
-{
+session_start();
+class CinemaController{
   private $vista;
 
-  function __construct()
-  {
+  function __construct(){
     $this->vista = new CinemaView();
   }
 
-  function iniciar () {
-
-    $this->vista->mostrar();
+  function iniciar(){
+    $session = $this->checkSession();
+    $this->vista->mostrar($session);
   }
-  function iniciarContenido () {
 
+  function iniciarContenido(){
     $this->vista->mostrarContenido();
   }
 
+  function checkSession(){
+    if (isset($_SESSION["privilegio"])) {
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
 
  ?>

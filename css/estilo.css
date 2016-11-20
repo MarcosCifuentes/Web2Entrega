@@ -51,3 +51,7 @@ h1 {
 ul li{
   list-style-type: none;
 }
+
+.panel{
+  color: black;
+}

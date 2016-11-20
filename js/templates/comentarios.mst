@@ -1,0 +1,13 @@
+<div class="row">
+{{#paquete}}
+      <div class="col-md-7">
+        {{texto}}
+      </div>
+      <div class="col-md-3">
+         Puntaje : {{puntuacion}}
+      </div>
+        <a class="eliminarComentario col-md-2" id_comentario="{{id_comentario}}" id_pelicula="{{id_pelicula}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+
+  </div>
+{{/paquete}}
+</div>

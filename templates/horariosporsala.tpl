@@ -20,14 +20,19 @@
         <td>
           {$horario['horario']}
         </td>
+          {if isset($session) && ($privilegios == 1)}
         <td>
           <a class="js-visibilidad" id="eliminarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
-          <a class="js-visibilidad" id="editarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
+          <a class="js-visibilidad" id="editorHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
+          {/if}
       </tr>
       {/foreach}
   </tbody>
 </table>
+
+{if isset($session) && ($privilegios == 1)}
+
 <div class="js-visibilidad">
 <h2>Agregar Horario</h2>
     <form id="formHorario" action="agregar_horario" method="post" enctype="multipart/form-data">
@@ -44,13 +49,4 @@
       <input type="submit" name="Agregar" id="agregarHorario">
     </form>
 </div>
-<div class="editorHorario">
-      <h2>Editar Horario</h2>
-        <form id="formEditHorario" action="editar_horario" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="idhorario"  value="">
-          <input type="text" name="pelicula"  required value="" placeholder="pelicula">
-          <input type="text" name="sala"  required value="" placeholder="sala">
-		  <input type="text" name="horario"  required value="" placeholder="horario">
-          <input type="submit" name="Editar" id="editarHora">
-        </form>
-      </div>
+{/if}

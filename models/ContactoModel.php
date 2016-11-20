@@ -5,18 +5,19 @@ include_once ('models/Model.php');
 class ContactoModel extends Model{
   function __construct(){
     parent::__construct();
-}
+  }
+  
   function getMensajes(){
-      $sentencia = $this->db->prepare( "select * from contacto");
-      $sentencia->execute();
-      $contactos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $sentencia = $this->db->prepare( "select * from contacto");
+    $sentencia->execute();
+    $contactos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-      return $contactos;
-    }
+    return $contactos;
+  }
 
-    function enviarMensaje($nombreyapellido,$email,$mensaje){
-        $sentencia = $this->db->prepare("INSERT INTO contacto(nombreyapellido,email,mensaje) VALUES(?,?,?)");
-        $sentencia->execute(array($nombreyapellido,$email,$mensaje));
+  function enviarMensaje($nombreyapellido,$email,$mensaje){
+    $sentencia = $this->db->prepare("INSERT INTO contacto(nombreyapellido,email,mensaje) VALUES(?,?,?)");
+    $sentencia->execute(array($nombreyapellido,$email,$mensaje));
   }
 
   function eliminarMensaje($id_contacto){

@@ -10,9 +10,9 @@ abstract class Model{
     try {
       $this->db = new PDO('mysql:host='.HOST.';dbname='.rtrim(DBNAME).';charset=utf8', USUARIO, DBPASS);
     } catch (PDOException $e) {
-        header('Location: db/index.php');
-        die();
+      header('Location: db/index.php');
+      die();
     }
   }
 }
- ?>
+?>

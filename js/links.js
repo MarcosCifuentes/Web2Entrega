@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   function Cargar(accion) {
     var data = {
       action : accion
@@ -16,8 +15,6 @@ $(document).ready(function() {
         alert('Error');
       }
     })
-
-
   }
 
   Cargar('mostrar_home');
@@ -26,29 +23,13 @@ $(document).ready(function() {
     Cargar('mostrar_home');
     ev.preventDefault();
   });
-  $('#js-adminpeliculas').on("click",function(ev){
-    Cargar('mostrar_admin_peliculas');
-    ev.preventDefault();
-  });
-  $('#js-admingeneros').on("click",function(ev){
-    Cargar('mostrar_admin_generos');
-    ev.preventDefault();
-  });
-  $('#js-adminhorarios').on("click",function(ev){
-    Cargar('mostrar_admin_horarios');
-    ev.preventDefault();
-  });
-  $('#js-admincontacto').on("click",function(ev){
-    Cargar('mostrar_admin_contacto');
-    ev.preventDefault();
-  });
   $('#js-peliculasdisponibles').on("click",function(ev){
     Cargar('mostrar_peliculas_disponibles');
     ev.preventDefault();
   });
 
   $('#js-peliculasgenero').on("click",function(ev){
-    Cargar('mostrar_peliculas_genero');
+    Cargar('mostrar_genero');
     ev.preventDefault();
   });
 
@@ -62,7 +43,17 @@ $(document).ready(function() {
     ev.preventDefault();
   });
 
-// darle los valores a los elementos del formulario
+  $('#js-login').on("click",function(ev){
+    Cargar('mostrar_login');
+    ev.preventDefault();
+  });
+
+  $('#js-logout').on("click",function(ev){
+    Cargar('logout');
+    ev.preventDefault();
+  });
+
+  // darle los valores a los elementos del formulario
 
   $(document).on('submit',"#formPelicula",function () {
     event.preventDefault();
@@ -76,7 +67,6 @@ $(document).ready(function() {
       processData: false,
       success: function(data) {
         $("#js-pisar").html(data);
-
       }
     });
   });
@@ -132,88 +122,93 @@ $(document).ready(function() {
   });
 
   $(document).on('submit','#peliculas_genero',function () {
-  event.preventDefault();
-  var genero = $('#dropdownGenero option:selected').val();
-  formData = new FormData(this);
-  formData.append('genero',genero);
-  $.ajax({
-    method: "POST",
-    url: "index.php?action=listar_peliculas_genero",
-    data: formData,
-    contentType: false,
-    cache: false,
-    processData: false,
-    success: function(data) {
-      $(".filtroPelicula").html(data);
-    }
+    event.preventDefault();
+    var genero = $('#dropdownGenero option:selected').val();
+    formData = new FormData(this);
+    formData.append('genero',genero);
+    $.ajax({
+      method: "POST",
+      url: "index.php?action=listar_peliculas_genero",
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(data) {
+        $(".filtroPelicula").html(data);
+      }
+    });
   });
-});
 
 
-$(document).on('submit','#eliminar_peliculas_genero',function () {
-event.preventDefault();
-var genero = $('#dropdownEliminarGenero option:selected').val();
-formData = new FormData(this);
-formData.append('genero',genero);
-$.ajax({
-  method: "POST",
-  url: "index.php?action=eliminar_genero",
-  data: formData,
-  contentType: false,
-  cache: false,
-  processData: false,
-  success: function(data) {
-    $("#js-pisar").html(data);
-  }
-});
-});
+  $(document).on('submit','#eliminar_peliculas_genero',function () {
+    event.preventDefault();
+    var genero = $('#dropdownEliminarGenero option:selected').val();
+    formData = new FormData(this);
+    formData.append('genero',genero);
+    $.ajax({
+      method: "POST",
+      url: "index.php?action=eliminar_genero",
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(data) {
+        $("#js-pisar").html(data);
+      }
+    });
+  });
 
-$(document).on('submit','.formulario',function () {
-event.preventDefault();
-formData = new FormData(this);
-var dir = $(this).attr("action");
-$.ajax({
-  method: "POST",
-  url: "index.php?action="+dir,
-  data: formData,
-  contentType: false,
-  cache: false,
-  processData: false,
-  success: function(data) {
-    $("#js-pisar").html(data);
-  }
-});
-});
+  $(document).on('submit','.formulario',function () {
+    event.preventDefault();
+    formData = new FormData(this);
+    var dir = $(this).attr("action");
+    $.ajax({
+      method: "POST",
+      url: "index.php?action="+dir,
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(data) {
+        $("#js-pisar").html(data);
+      }
+    });
+  });
 
-$(document).on("click",'#editorPelicula', function(){
-   event.preventDefault();
-   $.get( "index.php?action=editor_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
-     $('#js-pisar').html(data);
-   });
- });
+  $(document).on("click",'#editorPelicula', function(){
+    event.preventDefault();
+    $.get( "index.php?action=editor_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
+      $('#js-pisar').html(data);
+    });
+  });
 
-$(document).on("click",'#eliminarPelicula', function(){
-   event.preventDefault();
-   $.get( "index.php?action=eliminar_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
-     $('#js-pisar').html(data);
-   });
- });
+  $(document).on("click",'#editorHorario', function(){
+    event.preventDefault();
+    $.get( "index.php?action=editor_horario",{id_horario: $(this).attr("data-idhorario")}, function(data) {
+      $('#js-pisar').html(data);
+    });
+  });
+
+  $(document).on("click",'#eliminarPelicula', function(){
+    event.preventDefault();
+    $.get( "index.php?action=eliminar_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
+      $('#js-pisar').html(data);
+    });
+  });
 
   $(document).on("click",'#eliminarHorario', function(){
-  event.preventDefault();
-  $.get( "index.php?action=eliminar_horario",{ id_horario: $(this).attr("data-idhorario") }, function(data) {
-    $('#js-pisar').html(data);
+    event.preventDefault();
+    $.get( "index.php?action=eliminar_horario",{ id_horario: $(this).attr("data-idhorario") }, function(data) {
+      $('#js-pisar').html(data);
     });
 
   });
 
-$(document).on("click",'#eliminarMensaje', function(){
-  event.preventDefault();
-  $.get( "index.php?action=eliminar_mensaje",{ id_contacto: $(this).attr("data-idcontacto") }, function(data) {
-    $('#js-pisar').html(data);
+  $(document).on("click",'#eliminarMensaje', function(){
+    event.preventDefault();
+    $.get( "index.php?action=eliminar_mensaje",{ id_contacto: $(this).attr("data-idcontacto") }, function(data) {
+      $('#js-pisar').html(data);
     });
-
   });
-
 
 });
