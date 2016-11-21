@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-20 04:51:38
+/* Smarty version 3.1.30, created on 2016-11-21 04:19:27
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\horariosporsala.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58311dcacab0c9_35191883',
+  'unifunc' => 'content_583267bf64c4a5_57405836',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '616079dbb5f07f00006385399330fc302b00e18f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\horariosporsala.tpl',
-      1 => 1479608532,
+      1 => 1479698350,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58311dcacab0c9_35191883 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583267bf64c4a5_57405836 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Sala y Horario</h1>
 <table class="table">
@@ -51,11 +51,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['index']->value => $_smarty_tpl->tpl_v
           <?php echo $_smarty_tpl->tpl_vars['horario']->value['horario'];?>
 
         </td>
-          <?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 1)) {?>
+          <?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
         <td>
-          <a class="js-visibilidad" id="eliminarHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
+          <a  id="eliminarHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
 "><span class="glyphicon glyphicon-remove" ></span></a>
-          <a class="js-visibilidad" id="editorHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
+          <a  id="editorHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
 "><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
           <?php }?>
@@ -69,9 +69,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
   </tbody>
 </table>
 
-<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 1)) {?>
+<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
 
-<div class="js-visibilidad">
+<div >
 <h2>Agregar Horario</h2>
     <form id="formHorario" action="agregar_horario" method="post" enctype="multipart/form-data">
       <div class="">Pelicula:

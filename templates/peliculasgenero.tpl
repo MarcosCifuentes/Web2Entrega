@@ -15,7 +15,7 @@
 <div class="filtroPelicula">
 </div>
 
-{if isset($session) && ($privilegios == 1)}
+{if isset($session) && ($privilegios == administrador)}
 <h2>Agregar Genero</h2>
     <form id="formGenero" action="agregar_genero" method="post" enctype="multipart/form-data">
       <input type="text" name="genero"  required value="" placeholder="Genero">

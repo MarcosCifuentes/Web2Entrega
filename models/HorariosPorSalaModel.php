@@ -44,7 +44,7 @@ class HorariosPorSalaModel extends Model{
 
   function editarHorario($id_horario,$pelicula,$sala,$horario){
     $sentencia = $this->db->prepare("UPDATE horario SET fk_pelicula=?,sala=?,horario=? WHERE  id_horario=?");
-    $sentencia->execute(array($id_horario,$pelicula,$sala,$horario));
+    $sentencia->execute(array($pelicula,$sala,$horario,$id_horario,));
 
   }
 }

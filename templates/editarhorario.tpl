@@ -12,6 +12,6 @@
       </div>
     <input type="text" name="sala"  required value="{$horario['sala']}" placeholder="sala">
     <input type="text" name="horario"  required value="{$horario['horario']}" placeholder="horario">
-    <input type="submit" name="Editar" id="editarHora">
+    <input type="submit" name="Editar" >
   </form>
 </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-20 04:51:39
+/* Smarty version 3.1.30, created on 2016-11-21 04:19:28
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\contacto.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58311dcb920de6_88373277',
+  'unifunc' => 'content_583267c080dc22_29098357',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '83c5805d39865b3dac6b2456332b66107f6ce37e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\contacto.tpl',
-      1 => 1479612285,
+      1 => 1479698355,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58311dcb920de6_88373277 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583267c080dc22_29098357 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div>
 <h2>Envienos Su Mensaje</h2>
@@ -32,9 +32,7 @@ function content_58311dcb920de6_88373277 (Smarty_Internal_Template $_smarty_tpl)
     </form>
 </div>
 
-<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 1)) {?>
-
-
+<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
 <div class="js-visibilidad">
 <h1>Mensajes Recibidos</h1>
 <table class="table">

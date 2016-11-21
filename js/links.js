@@ -53,6 +53,13 @@ $(document).ready(function() {
     ev.preventDefault();
   });
 
+  $('#js-registrar').on("click",function(ev){
+    Cargar('mostrar_register');
+    ev.preventDefault();
+  });
+
+
+
   // darle los valores a los elementos del formulario
 
   $(document).on('submit',"#formPelicula",function () {
@@ -189,6 +196,13 @@ $(document).ready(function() {
     });
   });
 
+  $(document).on("click",'#editorUsuario', function(){
+    event.preventDefault();
+    $.get( "index.php?action=editor_usuario",{email: $(this).attr("data-email")}, function(data) {
+      $('#js-pisar').html(data);
+    });
+  });
+
   $(document).on("click",'#eliminarPelicula', function(){
     event.preventDefault();
     $.get( "index.php?action=eliminar_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
@@ -210,5 +224,58 @@ $(document).ready(function() {
       $('#js-pisar').html(data);
     });
   });
+
+  $(document).on("submit",".crearComentario",function(e){//creacion de comentarios con api
+    e.preventDefault();
+    $.ajax({
+      url : 'api/comentarios',
+      data : {comentario:$(".text-api").val(),puntaje:$(".puntaje-api").val(),id_pelicula:$(".id_pelicula-api").val()},
+      type : 'POST',
+      dataType : 'json',
+      success : function() {
+        setTimeout(function(){comentariosAjax($('.id_pelicula-api').val());},2000);
+        //comentariosAjax($(".id_cabania-api").val());
+
+      }
+    });
+
+  });
+
+  $(document).on("click",".eliminarComentario",function() {//eliminacion de comentarios con api
+    var id_pelicula = $(this).attr("id_pelicula");
+    var dir = $(this).attr("id_comentario");
+    $.ajax({
+      url: 'api/comentarios/'+dir,
+      type: 'DELETE',
+      success: function(result) {
+        comentariosAjax(id_pelicula);
+      }
+    });
+  });
+
+  function createComentarios(comentarios){
+    $.ajax({ url: 'js/templates/comentarios.mst',
+    success: function(templateReceived) {
+      var rendered = Mustache.render(templateReceived,{pelicula:comentarios});
+      $("#div-com").html(rendered);
+    }
+  });
+}
+
+//cargado de comentarios de la api
+function comentariosAjax(id_cabania) {
+  $.ajax(
+    {
+      method:"GET",
+      dataType: "JSON",
+      url: "api/ComentariosApi/" +id_pelicula,//traer id de la cabania que pertenece
+      success:function(data) {
+        createComentarios(data);
+      }
+    }
+
+  )
+}
+
 
 });

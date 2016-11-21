@@ -8,7 +8,6 @@ class GeneroController {
   private $model;
   private $modelPelicula;
   private $view;
-  private $vistaAdmin;
 
   function __construct(){
     $this->view = new GeneroView();
@@ -43,7 +42,7 @@ class GeneroController {
     $id_genero = $_POST["id_genero"];
     $genero = $_POST["generonuevo"];
     $this->modelGenero->editarGenero($id_genero,$genero);
-    $this->mostrarGeneroAdmin();
+    $this->mostrarGenero();
   }
 
   function eliminarGenero(){
@@ -52,14 +51,14 @@ class GeneroController {
       $this->modelPelicula->eliminarPeliculaGenero($key);
       $this->model->eliminarGenero($key);
     }
-    $this->mostrarGeneroAdmin();
+    $this->mostrarGenero();
   }
 
   function agregarGenero(){
     $genero = $_POST["genero"];
     if(isset($genero)&&($genero!=="")) {
       $this->model->agregarGenero($genero);
-      $this->mostrarGeneroAdmin();
+      $this->mostrarGenero();
     }
   }
 

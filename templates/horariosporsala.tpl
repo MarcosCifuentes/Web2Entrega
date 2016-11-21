@@ -20,10 +20,10 @@
         <td>
           {$horario['horario']}
         </td>
-          {if isset($session) && ($privilegios == 1)}
+          {if isset($session) && ($privilegios == administrador)}
         <td>
-          <a class="js-visibilidad" id="eliminarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
-          <a class="js-visibilidad" id="editorHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
+          <a  id="eliminarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
+          <a  id="editorHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
           {/if}
       </tr>
@@ -31,9 +31,9 @@
   </tbody>
 </table>
 
-{if isset($session) && ($privilegios == 1)}
+{if isset($session) && ($privilegios == administrador)}
 
-<div class="js-visibilidad">
+<div >
 <h2>Agregar Horario</h2>
     <form id="formHorario" action="agregar_horario" method="post" enctype="multipart/form-data">
       <div class="">Pelicula:

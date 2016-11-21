@@ -8,9 +8,7 @@
     </form>
 </div>
 
-{if isset($session) && ($privilegios == 1)}
-
-
+{if isset($session) && ($privilegios == administrador)}
 <div class="js-visibilidad">
 <h1>Mensajes Recibidos</h1>
 <table class="table">

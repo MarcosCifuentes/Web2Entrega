@@ -85,7 +85,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   break;
 
   case ConfigApp::$ACTION_EDITAR_HORARIO:
-  $horariosPorSalaController->eliminarHorario();
+  $horariosPorSalaController->editarHorario();
   break;
 
   case ConfigApp::$ACTION_ELIMINAR_MENSAJE:
@@ -96,20 +96,28 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $contactoController->enviarMensaje();
   break;
 
+  case ConfigApp::$ACTION_MOSTRAR_REGISTER:
+  $loginController->mostrarRegister();
+  break;
+
   case ConfigApp::$ACTION_REGISTER:
   $loginController->register();
   break;
 
   case ConfigApp::$ACTION_MOSTRAR_LOGIN:
-  $loginController->mostrarPantallaLogin();
+  $loginController->mostrarLogin();
   break;
 
   case ConfigApp::$ACTION_LOGIN:
   $loginController->login();
   break;
 
-  case ConfigApp::$ACTION_CERRAR_SESION:
+  case ConfigApp::$ACTION_LOGOUT:
   $loginController->logout();
+  break;
+
+  case ConfigApp::$ACTION_EDITOR_USUARIO:
+  $loginController->editorUsuario();
   break;
 
   case ConfigApp::$ACTION_EDITAR_USUARIO:

@@ -11,8 +11,19 @@ class LoginController{
     $this->view = new LoginView();
   }
 
-  function mostrarPantallaLogin(){
-    $this->view->mostrarForm("");
+  function mostrarLogin(){
+    $this->view->mostrarLogin("");
+  }
+
+  function mostrarRegister(){
+    if(!isset($_SESSION["privilegio"])){
+      $privilegios=0;
+    }else{
+      $privilegios= $_SESSION["privilegio"];
+    }
+    $usuarios=$this->model->getUsuarios();
+    $session = $this->checkSession();
+    $this->view->mostrarRegister($usuarios, $session, $privilegios);
   }
 
   function login(){
@@ -39,7 +50,7 @@ class LoginController{
       $newUsuario["pass"] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
       $this->model->crearUsuario($newUsuario);
     }
-    $this->view->mostrarForm();
+    $this->view->mostrarRegister();
   }
 
   function logout(){
@@ -47,10 +58,27 @@ class LoginController{
     header("Location: index.php"); die();
   }
 
+  function editorUsuario(){
+    $email = $_GET['email'];
+    if (isset($email)){
+      $usuario = $this->model->getUsuario($email);
+      $this->view->mostrarEditorUsuario($usuario);
+    }
+  }
+
   function editarUsuario(){
-    $user = $_POST["nameUser"];
-    $this->model->editarUsuario($user);
-    $this->mostrarPantallaLogin();
+    $email = $_POST["email"];
+    $privilegio = $_POST["privilegio"];
+    $this->model->editarUsuario($email,$privilegio);
+    $this->mostrarRegister();
+  }
+
+  function checkSession(){
+    if (isset($_SESSION["privilegio"])) {
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 ?>

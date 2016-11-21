@@ -11,7 +11,7 @@ class LoginModel extends Model{
   function getUsuarios(){
     $usuarios = $this->db->prepare("SELECT * FROM usuario");
     $usuarios->execute();
-    return $usuarios->fetch(PDO::FETCH_ASSOC);
+    return $usuarios->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function getUsuario($email){
@@ -21,15 +21,14 @@ class LoginModel extends Model{
   }
 
   function crearUsuario($user){
-    $id_rol=0;
+    $id_rol="usuario";
     $usuario = $this->db->prepare("insert into usuario(email,contrasenia,privilegio) values(?,?,?) ");
     $usuario->execute(array($user["email"],$user["pass"],$id_rol));
   }
 
-  function editarUsuario($user){
-    $usuario = $this->getUsuario($user);
+  function editarUsuario($email,$privilegio){
     $sentencia = $this->db->prepare("UPDATE usuario SET privilegio=? WHERE email=?");
-    $sentencia->execute(array(!$usuario["privilegio"],$user));
+    $sentencia->execute(array($privilegio,$email));
   }
 }
 ?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-20 04:51:35
+/* Smarty version 3.1.30, created on 2016-11-21 04:19:25
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\peliculasgenero.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58311dc7a2bb46_69154672',
+  'unifunc' => 'content_583267bd6b5519_59880948',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '32ec57814d0448530f63ea1b98de2b06ac434ff3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\peliculasgenero.tpl',
-      1 => 1479604055,
+      1 => 1479698324,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58311dc7a2bb46_69154672 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583267bd6b5519_59880948 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <div class="row">
@@ -50,7 +50,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 <div class="filtroPelicula">
 </div>
 
-<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 1)) {?>
+<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
 <h2>Agregar Genero</h2>
     <form id="formGenero" action="agregar_genero" method="post" enctype="multipart/form-data">
       <input type="text" name="genero"  required value="" placeholder="Genero">

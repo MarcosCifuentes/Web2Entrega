@@ -23,6 +23,7 @@
           <li><a href="#" id="js-contacto" rel="contacto">Contacto<span class="sr-only">(Contacto)</span></a></li>
           {if ($session==false)}<li><a class="bg-primary" href="#" id="js-login" rel="login">Login<span class="sr-only">(Login)</span></a></li>{/if}
           {if ($session==true)}<li><a class="bg-primary" href="#" id="js-logout" rel="logout">Logout<span class="sr-only">(Logout)</span></a></li>{/if}
+          <li><a href="#" id="js-registrar" rel="registrar">Registrar<span class="sr-only">(Registrar)</span></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

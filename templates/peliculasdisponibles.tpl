@@ -51,8 +51,8 @@
         <div class="container panel" id="div-com">
 
         </div>
-        {if isset($session) && ($privilegios == 0)}
-        <form class="form-inline crearComentario" href="api/comentarios" method="post">
+        {if isset($session) && ($privilegios == usuario)}
+        <form class="form-inline crearComentario" href="api/ComentariosApi" method="post">
           <select class="puntaje-api" name="puntaje">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -60,13 +60,13 @@
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          <input maxlength=60 class="text-api" type="text" name="texto" placeholder="Comentario...">
+          <input maxlength=60 class="text-api" type="text" name="comentario" placeholder="Comentario...">
           <input class="id_pelicula-api" type="hidden" name="id_pelicula" value="{$pelicula['id_pelicula']}">
           <button class="" type="submit" name="button">Comentar</button>
         </form>
         {/if}
       </div>
-      {if isset($session) && ($privilegios == 1)}
+      {if isset($session) && ($privilegios == administrador)}
       <div class="panel">
         <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" ></span></a>
         <a class="js-visibilidad" id="editorPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}" ><span class="glyphicon glyphicon-pencil" ></span></a>
@@ -77,7 +77,7 @@
   {/foreach}
 </ul>
 
-{if isset($session) && ($privilegios == 1)}
+{if isset($session) && ($privilegios == administrador)}
 <h2>Agregar Pelicula</h2>
 <form id="formPelicula" action="agregar_pelicula" method="post" enctype="multipart/form-data">
   <input type="text" name="titulo"  required value="" placeholder="Titulo">
