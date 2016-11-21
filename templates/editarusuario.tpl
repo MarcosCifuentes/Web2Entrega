@@ -1,4 +1,4 @@
-<div class="editorUsuario">
+<div>
   <h2>Editar Usuario</h2>
     <form class="formulario" action="editar_usuario" method="post" enctype="multipart/form-data">
       <input  type="hidden" name="email"  value="{$usuario['email']}">

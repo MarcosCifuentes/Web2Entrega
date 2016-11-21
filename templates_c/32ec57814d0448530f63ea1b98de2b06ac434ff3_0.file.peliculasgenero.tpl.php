@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-21 04:19:25
+/* Smarty version 3.1.30, created on 2016-11-21 17:33:45
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\peliculasgenero.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583267bd6b5519_59880948',
+  'unifunc' => 'content_583321e9b10161_92676158',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '32ec57814d0448530f63ea1b98de2b06ac434ff3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\peliculasgenero.tpl',
-      1 => 1479698324,
+      1 => 1479746012,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_583267bd6b5519_59880948 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583321e9b10161_92676158 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <div class="row">
@@ -50,16 +50,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 <div class="filtroPelicula">
 </div>
 
-<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
+<?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
 <h2>Agregar Genero</h2>
-    <form id="formGenero" action="agregar_genero" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="agregar_genero" method="post" enctype="multipart/form-data">
       <input type="text" name="genero"  required value="" placeholder="Genero">
       <input type="submit" name="Agregar" value="Agregar Genero" id="agregarGenero">
     </form>
   <div class="row">
     <h2>Eliminar Genero</h2>
     <div class="col-2-md botones">
-      <form class="" id="eliminar_peliculas_genero" method="post" enctype="multipart/form-data">
+      <form class="formulario" action="eliminar_genero" method="post" enctype="multipart/form-data">
         <select name="genero" id="dropdownEliminarGenero">
           <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['generos']->value, 'genero');

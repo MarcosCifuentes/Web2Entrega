@@ -58,75 +58,14 @@ $(document).ready(function() {
     ev.preventDefault();
   });
 
+  $('#js-adminUsers').on("click",function(ev){
+    Cargar('administrar_usuarios');
+    ev.preventDefault();
+  });
+
 
 
   // darle los valores a los elementos del formulario
-
-  $(document).on('submit',"#formPelicula",function () {
-    event.preventDefault();
-    formData = new FormData(this);
-    $.ajax({
-      method: "POST",
-      url: "index.php?action=agregar_pelicula",
-      data: formData,
-      contentType: false,
-      cache: false,
-      processData: false,
-      success: function(data) {
-        $("#js-pisar").html(data);
-      }
-    });
-  });
-
-  $(document).on('submit',"#formHorario",function () {
-    event.preventDefault();
-    var titulo = $('#dropdownPelicula option:selected').val();
-    formData = new FormData(this);
-    formData.append('titulo',titulo);
-    $.ajax({
-      method: "POST",
-      url: "index.php?action=agregar_horario",
-      data: formData,
-      contentType: false,
-      cache: false,
-      processData: false,
-      success: function(data) {
-        $("#js-pisar").html(data);
-      }
-    });
-  });
-
-  $(document).on('submit',"#formContacto",function () {
-    event.preventDefault();
-    formData = new FormData(this);
-    $.ajax({
-      method: "POST",
-      url: "index.php?action=enviar_mensaje",
-      data: formData,
-      contentType: false,
-      cache: false,
-      processData: false,
-      success: function(data) {
-        $("#js-pisar").html(data);
-      }
-    });
-  });
-
-  $(document).on('submit',"#formGenero",function () {
-    event.preventDefault();
-    formData = new FormData(this);
-    $.ajax({
-      method: "POST",
-      url: "index.php?action=agregar_genero",
-      data: formData,
-      contentType: false,
-      cache: false,
-      processData: false,
-      success: function(data) {
-        $("#js-pisar").html(data);
-      }
-    });
-  });
 
   $(document).on('submit','#peliculas_genero',function () {
     event.preventDefault();
@@ -142,25 +81,6 @@ $(document).ready(function() {
       processData: false,
       success: function(data) {
         $(".filtroPelicula").html(data);
-      }
-    });
-  });
-
-
-  $(document).on('submit','#eliminar_peliculas_genero',function () {
-    event.preventDefault();
-    var genero = $('#dropdownEliminarGenero option:selected').val();
-    formData = new FormData(this);
-    formData.append('genero',genero);
-    $.ajax({
-      method: "POST",
-      url: "index.php?action=eliminar_genero",
-      data: formData,
-      contentType: false,
-      cache: false,
-      processData: false,
-      success: function(data) {
-        $("#js-pisar").html(data);
       }
     });
   });
@@ -182,35 +102,35 @@ $(document).ready(function() {
     });
   });
 
-  $(document).on("click",'#editorPelicula', function(){
+  $(document).on("click",'.editorPelicula', function(){
     event.preventDefault();
     $.get( "index.php?action=editor_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
       $('#js-pisar').html(data);
     });
   });
 
-  $(document).on("click",'#editorHorario', function(){
+  $(document).on("click",'.editorHorario', function(){
     event.preventDefault();
     $.get( "index.php?action=editor_horario",{id_horario: $(this).attr("data-idhorario")}, function(data) {
       $('#js-pisar').html(data);
     });
   });
 
-  $(document).on("click",'#editorUsuario', function(){
+  $(document).on("click",'.editorUsuario', function(){
     event.preventDefault();
     $.get( "index.php?action=editor_usuario",{email: $(this).attr("data-email")}, function(data) {
       $('#js-pisar').html(data);
     });
   });
 
-  $(document).on("click",'#eliminarPelicula', function(){
+  $(document).on("click",'.eliminarPelicula', function(){
     event.preventDefault();
     $.get( "index.php?action=eliminar_pelicula",{ id_pelicula: $(this).attr("data-idpelicula")}, function(data) {
       $('#js-pisar').html(data);
     });
   });
 
-  $(document).on("click",'#eliminarHorario', function(){
+  $(document).on("click",'.eliminarHorario', function(){
     event.preventDefault();
     $.get( "index.php?action=eliminar_horario",{ id_horario: $(this).attr("data-idhorario") }, function(data) {
       $('#js-pisar').html(data);
@@ -218,7 +138,7 @@ $(document).ready(function() {
 
   });
 
-  $(document).on("click",'#eliminarMensaje', function(){
+  $(document).on("click",'.eliminarMensaje', function(){
     event.preventDefault();
     $.get( "index.php?action=eliminar_mensaje",{ id_contacto: $(this).attr("data-idcontacto") }, function(data) {
       $('#js-pisar').html(data);

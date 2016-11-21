@@ -1,4 +1,4 @@
-<div class="editorHorario">
+<div>
   <h2>Editar Horario</h2>
   <form class="formulario" action="editar_horario" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id_horario"  value="{$horario['id_horario']}">

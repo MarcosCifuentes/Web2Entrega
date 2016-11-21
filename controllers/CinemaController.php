@@ -9,8 +9,13 @@ class CinemaController{
   }
 
   function iniciar(){
+    if(!isset($_SESSION["privilegio"])){
+      $privilegios=0;
+    }else{
+      $privilegios= $_SESSION["privilegio"];
+    }
     $session = $this->checkSession();
-    $this->vista->mostrar($session);
+    $this->vista->mostrar($session,$privilegios);
   }
 
   function iniciarContenido(){

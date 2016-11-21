@@ -5,7 +5,9 @@
       <th>Pelicula</th>
       <th>Sala</th>
       <th>Horario</th>
+      {if ($session==true) && ($privilegios == administrador)}
       <th>Configuracion</th>
+      {/if}
       </tr>
     </thead>
     <tbody>
@@ -20,10 +22,10 @@
         <td>
           {$horario['horario']}
         </td>
-          {if isset($session) && ($privilegios == administrador)}
+          {if ($session==true) && ($privilegios == administrador)}
         <td>
-          <a  id="eliminarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
-          <a  id="editorHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
+          <a  class="eliminarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
+          <a  class="editorHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
           {/if}
       </tr>
@@ -31,13 +33,13 @@
   </tbody>
 </table>
 
-{if isset($session) && ($privilegios == administrador)}
+{if ($session==true) && ($privilegios == administrador)}
 
 <div >
 <h2>Agregar Horario</h2>
-    <form id="formHorario" action="agregar_horario" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="agregar_horario" method="post" enctype="multipart/form-data">
       <div class="">Pelicula:
-      <select class="form-control" id="dropdownPelicula" name="genero">
+      <select class="form-control" name="titulo">
         <option value="">Elegir Pelicula</option>
         {foreach from=$peliculas item=pelicula}
         <option value="{$pelicula['id_pelicula']}">{$pelicula['titulo']}</option>

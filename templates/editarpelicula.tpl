@@ -1,4 +1,4 @@
-<div class="editorPelicula">
+<div>
   <h2>Editar Pelicula</h2>
     <form class="formulario" action="editar_pelicula" method="post" enctype="multipart/form-data">
       <input  type="hidden" name="id_pelicula"  value="{$pelicula['id_pelicula']}">

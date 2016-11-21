@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-21 04:19:27
+/* Smarty version 3.1.30, created on 2016-11-21 17:23:28
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\horariosporsala.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583267bf64c4a5_57405836',
+  'unifunc' => 'content_58331f80b81f28_96189897',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '616079dbb5f07f00006385399330fc302b00e18f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\horariosporsala.tpl',
-      1 => 1479698350,
+      1 => 1479745372,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_583267bf64c4a5_57405836 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58331f80b81f28_96189897 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Sala y Horario</h1>
 <table class="table">
@@ -29,7 +29,9 @@ function content_583267bf64c4a5_57405836 (Smarty_Internal_Template $_smarty_tpl)
       <th>Pelicula</th>
       <th>Sala</th>
       <th>Horario</th>
+      <?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
       <th>Configuracion</th>
+      <?php }?>
       </tr>
     </thead>
     <tbody>
@@ -51,11 +53,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['index']->value => $_smarty_tpl->tpl_v
           <?php echo $_smarty_tpl->tpl_vars['horario']->value['horario'];?>
 
         </td>
-          <?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
+          <?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
         <td>
-          <a  id="eliminarHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
+          <a  class="eliminarHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
 "><span class="glyphicon glyphicon-remove" ></span></a>
-          <a  id="editorHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
+          <a  class="editorHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
 "><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
           <?php }?>
@@ -69,13 +71,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
   </tbody>
 </table>
 
-<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
+<?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
 
 <div >
 <h2>Agregar Horario</h2>
-    <form id="formHorario" action="agregar_horario" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="agregar_horario" method="post" enctype="multipart/form-data">
       <div class="">Pelicula:
-      <select class="form-control" id="dropdownPelicula" name="genero">
+      <select class="form-control" name="titulo">
         <option value="">Elegir Pelicula</option>
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['peliculas']->value, 'pelicula');

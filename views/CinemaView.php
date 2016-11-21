@@ -8,8 +8,9 @@ class CinemaView{
     $this->smarty = new Smarty();
   }
 
-  function mostrar ($session) {
+  function mostrar ($session,$privilegios) {
     $this->smarty->assign('session', $session);
+    $this->smarty->assign('privilegios', $privilegios);
     $this->smarty->display('index.tpl');
   }
 

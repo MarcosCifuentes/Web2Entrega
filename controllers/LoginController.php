@@ -21,12 +21,12 @@ class LoginController{
     }else{
       $privilegios= $_SESSION["privilegio"];
     }
-    $usuarios=$this->model->getUsuarios();
     $session = $this->checkSession();
-    $this->view->mostrarRegister($usuarios, $session, $privilegios);
+    $this->view->mostrarRegister($session, $privilegios);
   }
 
   function login(){
+    $error=false;
     if(isset($_POST["email"]) && isset($_POST["pass"])){
       $email = $_POST["email"];
       $password = $_POST["pass"];
@@ -39,8 +39,11 @@ class LoginController{
         $_SESSION['privilegio'] = $usuarioRegistrado["privilegio"];
         header("Location: index.php"); die();
       }
-    }
+    }else {
+      $error=true;
 
+    }
+    $this->mostrarLogin($error);
   }
 
   function register(){
@@ -51,6 +54,11 @@ class LoginController{
       $this->model->crearUsuario($newUsuario);
     }
     $this->view->mostrarRegister();
+  }
+
+  function mostrarAdministrarUsuarios(){
+    $usuarios=$this->model->getUsuarios();
+    $this->view->mostrarAdministrarUsuarios($usuarios);
   }
 
   function logout(){
@@ -70,7 +78,7 @@ class LoginController{
     $email = $_POST["email"];
     $privilegio = $_POST["privilegio"];
     $this->model->editarUsuario($email,$privilegio);
-    $this->mostrarRegister();
+    $this->mostrarAdministrarUsuarios();
   }
 
   function checkSession(){

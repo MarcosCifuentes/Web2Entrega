@@ -15,16 +15,16 @@
 <div class="filtroPelicula">
 </div>
 
-{if isset($session) && ($privilegios == administrador)}
+{if ($session==true) && ($privilegios == administrador)}
 <h2>Agregar Genero</h2>
-    <form id="formGenero" action="agregar_genero" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="agregar_genero" method="post" enctype="multipart/form-data">
       <input type="text" name="genero"  required value="" placeholder="Genero">
       <input type="submit" name="Agregar" value="Agregar Genero" id="agregarGenero">
     </form>
   <div class="row">
     <h2>Eliminar Genero</h2>
     <div class="col-2-md botones">
-      <form class="" id="eliminar_peliculas_genero" method="post" enctype="multipart/form-data">
+      <form class="formulario" action="eliminar_genero" method="post" enctype="multipart/form-data">
         <select name="genero" id="dropdownEliminarGenero">
           {foreach from=$generos item=genero}
           <option value="{$genero['id_genero']}">{$genero['genero']}</option>

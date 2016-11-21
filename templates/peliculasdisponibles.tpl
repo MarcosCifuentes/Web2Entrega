@@ -51,7 +51,7 @@
         <div class="container panel" id="div-com">
 
         </div>
-        {if isset($session) && ($privilegios == usuario)}
+        {if ($session==true) && ($privilegios == usuario)}
         <form class="form-inline crearComentario" href="api/ComentariosApi" method="post">
           <select class="puntaje-api" name="puntaje">
             <option value="1">1</option>
@@ -66,10 +66,10 @@
         </form>
         {/if}
       </div>
-      {if isset($session) && ($privilegios == administrador)}
+      {if ($session==true) && ($privilegios == administrador)}
       <div class="panel">
-        <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" ></span></a>
-        <a class="js-visibilidad" id="editorPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}" ><span class="glyphicon glyphicon-pencil" ></span></a>
+        <a  class="eliminarPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}"><span class="glyphicon glyphicon-remove" ></span></a>
+        <a  class="editorPelicula" href="#" data-idpelicula="{$pelicula['id_pelicula']}" ><span class="glyphicon glyphicon-pencil" ></span></a>
       </div>
       {/if}
     </ul>
@@ -77,9 +77,9 @@
   {/foreach}
 </ul>
 
-{if isset($session) && ($privilegios == administrador)}
+{if ($session==true) && ($privilegios == administrador)}
 <h2>Agregar Pelicula</h2>
-<form id="formPelicula" action="agregar_pelicula" method="post" enctype="multipart/form-data">
+<form class="formulario" action="agregar_pelicula" method="post" enctype="multipart/form-data">
   <input type="text" name="titulo"  required value="" placeholder="Titulo">
   <input type="text" name="duracion"  required value="" placeholder="duracion">
   <div class="">Genero:

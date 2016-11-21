@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-21 04:19:28
+/* Smarty version 3.1.30, created on 2016-11-21 17:35:12
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\contacto.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583267c080dc22_29098357',
+  'unifunc' => 'content_583322400bd622_25925997',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '83c5805d39865b3dac6b2456332b66107f6ce37e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\contacto.tpl',
-      1 => 1479698355,
+      1 => 1479745165,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_583267c080dc22_29098357 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583322400bd622_25925997 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div>
 <h2>Envienos Su Mensaje</h2>
-    <form id="formContacto" action="enviar_mensaje" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="enviar_mensaje" method="post" enctype="multipart/form-data">
       <input type="text" name="nombreyapellido"  required value="" placeholder="Nombre y Apellido">
       <input type="text" name="email"  required value="" placeholder="Email">
       <textarea class="form-control" rows="8" type="text" name="mensaje" required value="" placeholder="Mensaje"></textarea>
@@ -32,7 +32,7 @@ function content_583267c080dc22_29098357 (Smarty_Internal_Template $_smarty_tpl)
     </form>
 </div>
 
-<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
+<?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
 <div class="js-visibilidad">
 <h1>Mensajes Recibidos</h1>
 <table class="table">
@@ -64,7 +64,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['index']->value => $_smarty_tpl->tpl_v
 
         </td>
         <td>
-          <a class="js-visibilidad" id="eliminarMensaje" href="#" data-idcontacto="<?php echo $_smarty_tpl->tpl_vars['contacto']->value['id_contacto'];?>
+          <a class="js-visibilidad" class="eliminarMensaje" href="#" data-idcontacto="<?php echo $_smarty_tpl->tpl_vars['contacto']->value['id_contacto'];?>
 "><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
         </td>
       </tr>

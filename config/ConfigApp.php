@@ -30,6 +30,7 @@ class ConfigApp{
   public static $ACTION_REGISTER = 'register';
   public static $ACTION_MOSTRAR_REGISTER = "mostrar_register";
   public static $ACTION_LOGOUT = "logout";
+  public static $ACTION_ADMINISTRAR_USUARIO = "administrar_usuarios";
   public static $ACTION_EDITOR_USUARIO = "editor_usuario";
   public static $ACTION_EDITAR_USUARIO = "editar_usuario";
 

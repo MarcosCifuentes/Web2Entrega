@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-21 04:19:19
+/* Smarty version 3.1.30, created on 2016-11-21 17:19:34
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\peliculasdisponibles.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583267b7f282a8_13665644',
+  'unifunc' => 'content_58331e96b3fa98_91010705',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '209dc13a6265dfaa7d4f2fad451d330a9a0958fc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\peliculasdisponibles.tpl',
-      1 => 1479698279,
+      1 => 1479745100,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_583267b7f282a8_13665644 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58331e96b3fa98_91010705 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Peliculas Disponibles</h1>
 <ul class="list-group">
@@ -113,7 +113,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         <div class="container panel" id="div-com">
 
         </div>
-        <?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'usuario')) {?>
+        <?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'usuario')) {?>
         <form class="form-inline crearComentario" href="api/ComentariosApi" method="post">
           <select class="puntaje-api" name="puntaje">
             <option value="1">1</option>
@@ -129,11 +129,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         </form>
         <?php }?>
       </div>
-      <?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
+      <?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
       <div class="panel">
-        <a class="js-visibilidad" id="eliminarPelicula" href="#" data-idpelicula="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['id_pelicula'];?>
+        <a  class="eliminarPelicula" href="#" data-idpelicula="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['id_pelicula'];?>
 "><span class="glyphicon glyphicon-remove" ></span></a>
-        <a class="js-visibilidad" id="editorPelicula" href="#" data-idpelicula="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['id_pelicula'];?>
+        <a  class="editorPelicula" href="#" data-idpelicula="<?php echo $_smarty_tpl->tpl_vars['pelicula']->value['id_pelicula'];?>
 " ><span class="glyphicon glyphicon-pencil" ></span></a>
       </div>
       <?php }?>
@@ -147,9 +147,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 </ul>
 
-<?php if (isset($_smarty_tpl->tpl_vars['session']->value) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
+<?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
 <h2>Agregar Pelicula</h2>
-<form id="formPelicula" action="agregar_pelicula" method="post" enctype="multipart/form-data">
+<form class="formulario" action="agregar_pelicula" method="post" enctype="multipart/form-data">
   <input type="text" name="titulo"  required value="" placeholder="Titulo">
   <input type="text" name="duracion"  required value="" placeholder="duracion">
   <div class="">Genero:

@@ -21,9 +21,11 @@
           <li><a href="#" id="js-peliculasgenero" rel="peliculasgenero">Peliculas por Genero<span class="sr-only">(Peliculas por Genero)</span></a></li>
           <li><a href="#" id="js-horariosporsala" rel="horariosporsala">Horarios por Sala<span class="sr-only">(Horarios por Sala)</span></a></li>
           <li><a href="#" id="js-contacto" rel="contacto">Contacto<span class="sr-only">(Contacto)</span></a></li>
-          {if ($session==false)}<li><a class="bg-primary" href="#" id="js-login" rel="login">Login<span class="sr-only">(Login)</span></a></li>{/if}
-          {if ($session==true)}<li><a class="bg-primary" href="#" id="js-logout" rel="logout">Logout<span class="sr-only">(Logout)</span></a></li>{/if}
-          <li><a href="#" id="js-registrar" rel="registrar">Registrar<span class="sr-only">(Registrar)</span></a></li>
+          {if ($session==true) && ($privilegios == administrador)}<li><a class="bg-primary" href="#" id="js-adminUsers" rel="login">Administrar Usuarios<span class="sr-only">(Administrar Usuarios)</span></a></li>{/if}
+          {if ($session==false)}<li><a class="bg-primary" href="#" id="js-login" rel="login">Login<span class="sr-only">(Login)</span></a></li><li><a class="bg-primary" href="#" id="js-registrar" rel="registrar">Registrar<span class="sr-only">(Registrar)</span></a></li>{/if}
+          {if ($session==true)}<li><form method="POST" action="index.php?action=logout"><button class="bg-primary" type="submit">Cerrar Sesión</button></form></li>{/if}
+
+
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

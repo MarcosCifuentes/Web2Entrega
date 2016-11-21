@@ -41,7 +41,7 @@ class GeneroController {
   function editarGenero(){
     $id_genero = $_POST["id_genero"];
     $genero = $_POST["generonuevo"];
-    $this->modelGenero->editarGenero($id_genero,$genero);
+    $this->model->editarGenero($id_genero,$genero);
     $this->mostrarGenero();
   }
 

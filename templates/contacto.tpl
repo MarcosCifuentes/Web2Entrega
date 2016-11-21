@@ -1,6 +1,6 @@
 <div>
 <h2>Envienos Su Mensaje</h2>
-    <form id="formContacto" action="enviar_mensaje" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="enviar_mensaje" method="post" enctype="multipart/form-data">
       <input type="text" name="nombreyapellido"  required value="" placeholder="Nombre y Apellido">
       <input type="text" name="email"  required value="" placeholder="Email">
       <textarea class="form-control" rows="8" type="text" name="mensaje" required value="" placeholder="Mensaje"></textarea>
@@ -8,7 +8,7 @@
     </form>
 </div>
 
-{if isset($session) && ($privilegios == administrador)}
+{if ($session==true) && ($privilegios == administrador)}
 <div class="js-visibilidad">
 <h1>Mensajes Recibidos</h1>
 <table class="table">
@@ -33,7 +33,7 @@
           {$contacto['mensaje']}
         </td>
         <td>
-          <a class="js-visibilidad" id="eliminarMensaje" href="#" data-idcontacto="{$contacto['id_contacto']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+          <a class="js-visibilidad" class="eliminarMensaje" href="#" data-idcontacto="{$contacto['id_contacto']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
         </td>
       </tr>
       {/foreach}
