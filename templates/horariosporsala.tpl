@@ -24,8 +24,8 @@
         </td>
           {if ($session==true) && ($privilegios == administrador)}
         <td>
-          <a  class="eliminarHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
-          <a  class="editorHorario" href="#" data-idhorario="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
+          <a  class="consulta_js" href="#" name="eliminar_horario" data="{$horario['id_horario']}"><span class="glyphicon glyphicon-remove" ></span></a>
+          <a  class="consulta_js" href="#" name="editor_horario" data="{$horario['id_horario']}"><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
           {/if}
       </tr>

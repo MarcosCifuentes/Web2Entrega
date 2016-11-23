@@ -33,7 +33,7 @@
           {$contacto['mensaje']}
         </td>
         <td>
-          <a class="js-visibilidad" class="eliminarMensaje" href="#" data-idcontacto="{$contacto['id_contacto']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+          <a class="consulta_js" href="#" name="eliminar_mensaje" data="{$contacto['id_contacto']}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
         </td>
       </tr>
       {/foreach}

@@ -16,7 +16,7 @@
         {$usuario['privilegio']}
       </td>
       <td>
-        <a  class="editorUsuario" href="#" data-email="{$usuario['email']}"><span class="glyphicon glyphicon-pencil" ></span></a>
+        <a  class="consulta_js" href="#" name="editor_usuario" data="{$usuario['email']}"><span class="glyphicon glyphicon-pencil" ></span></a>
       </td>
     </tr>
     {/foreach}

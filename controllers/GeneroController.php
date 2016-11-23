@@ -3,8 +3,9 @@ require_once ('models/PeliculasDisponiblesModel.php');
 require_once ('controllers/PeliculasDisponiblesController.php');
 require_once ('views/GeneroView.php');
 require_once ('models/GeneroModel.php');
+require_once ('controllers/CinemaController.php');
 
-class GeneroController {
+class GeneroController extends CinemaController{
   private $model;
   private $modelPelicula;
   private $view;
@@ -16,14 +17,14 @@ class GeneroController {
   }
 
   function mostrarGenero(){
-    if(!isset($_SESSION["privilegio"])){
-      $privilegios=0;
-    }else{
-      $privilegios= $_SESSION["privilegio"];
-    }
-    $generos = $this->getGeneros();
-    $session = $this->checkSession();
-    $this->view->mostrarGenero($generos, $session, $privilegios);
+      if(!isset($_SESSION["privilegio"])){
+        $privilegios=0;
+      }else{
+        $privilegios= $_SESSION["privilegio"];
+      }
+      $generos = $this->getGeneros();
+      $session = $this->checkSession();
+      $this->view->mostrarGenero($generos, $session, $privilegios);
   }
 
   function listarPeliculasGenero(){
@@ -35,39 +36,47 @@ class GeneroController {
   }
 
   function getGeneros(){
-    return $this->model->getGeneros();
+      return $this->model->getGeneros();
   }
 
   function editarGenero(){
-    $id_genero = $_POST["id_genero"];
-    $genero = $_POST["generonuevo"];
-    $this->model->editarGenero($id_genero,$genero);
-    $this->mostrarGenero();
+    if(($_SESSION["privilegio"])=="administrador"){
+      $id_genero = $_POST["id_genero"];
+      $genero = $_POST["generonuevo"];
+      $this->model->editarGenero($id_genero,$genero);
+      $this->mostrarGenero();
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
+    }
   }
 
   function eliminarGenero(){
-    $key = $_POST["genero"];
-    if (isset($key)){
-      $this->modelPelicula->eliminarPeliculaGenero($key);
-      $this->model->eliminarGenero($key);
+    if(($_SESSION["privilegio"])=="administrador"){
+      $key = $_POST["genero"];
+      if (isset($key)){
+        $this->modelPelicula->eliminarPeliculaGenero($key);
+        $this->model->eliminarGenero($key);
+      }
+      $this->mostrarGenero();
     }
-    $this->mostrarGenero();
+    else {
+      echo "<h1>a la cucha perro</h1>";
+    }
   }
 
   function agregarGenero(){
-    $genero = $_POST["genero"];
-    if(isset($genero)&&($genero!=="")) {
-      $this->model->agregarGenero($genero);
-      $this->mostrarGenero();
+    if(($_SESSION["privilegio"])=="administrador"){
+      $genero = $_POST["genero"];
+      if(isset($genero)&&($genero!=="")) {
+        $this->model->agregarGenero($genero);
+        $this->mostrarGenero();
+      }
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
     }
   }
 
-  function checkSession(){
-    if (isset($_SESSION["privilegio"])) {
-      return true;
-    }else{
-      return false;
-    }
-  }
 }
 ?>

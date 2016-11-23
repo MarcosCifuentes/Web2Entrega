@@ -1,17 +1,16 @@
 
 <?php
 require 'api.php';
-include_once("../models/ModelComentarios.php");
-include_once '../db/config.php';
+include_once("../models/ComentarioModel.php");
 class ComentariosApi extends Api
 {
   private $model;
   public function __construct($request)
  {
     parent::__construct($request);
-    $this->model = new ModelComentarios();
+    $this->model = new ComentariosModel();
   }
-  public function comentarios($argumentos){
+  public function comentario($argumentos){
     switch ($this->method) {
       case 'GET':
           if(count($argumentos)>0){
@@ -31,10 +30,11 @@ class ComentariosApi extends Api
           }
         break;
         case 'POST':
+            echo("count: ".count($argumentos) );
             if(count($argumentos)==0){
               $error['Error'] = "El comentario no se creo";
-              $comentario = $this->model->crearComentario($_POST['id_pelicula'],$_POST['comentario'],$_POST['puntaje']);
-              return ($comentario > 0) ? $this->model->getComentario($comentario) : $error;
+              $id_comentario = $this->model->crearComentario($_POST['id_pelicula'],$_POST['comentario'],$_POST['puntuacion']);
+              return ($id_comentario > 0) ? $this->model->getComentario($id_comentario) : $error;
             }
           break;
       default:

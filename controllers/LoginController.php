@@ -1,8 +1,9 @@
 <?php
 require_once("models/LoginModel.php");
 require_once("views/LoginView.php");
+require_once ('controllers/CinemaController.php');
 
-class LoginController{
+class LoginController extends CinemaController{
   private $view;
   private $model;
 
@@ -43,22 +44,33 @@ class LoginController{
       $error=true;
 
     }
-    $this->mostrarLogin($error);
+    $this->mostrarLogin();
   }
 
   function register(){
-    $newUsuario = [];
+    $error=false;
+    $nuevoUsuario = [];
     if( (isset($_POST['pass'])) && (isset($_POST['email']))){
-      $newUsuario["email"] = $_POST['email'];
-      $newUsuario["pass"] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-      $this->model->crearUsuario($newUsuario);
+      $nuevoUsuario["email"] = $_POST['email'];
+      $usuario=$this->model->getUsuario($nuevoUsuario["email"]);
+      if ($usuario["email"]=="") {
+        $nuevoUsuario["pass"] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $this->model->crearUsuario($nuevoUsuario);
+      }
+
     }
+
     $this->view->mostrarRegister();
   }
 
   function mostrarAdministrarUsuarios(){
-    $usuarios=$this->model->getUsuarios();
-    $this->view->mostrarAdministrarUsuarios($usuarios);
+    if(($_SESSION["privilegio"])=="administrador"){
+      $usuarios=$this->model->getUsuarios();
+      $this->view->mostrarAdministrarUsuarios($usuarios);
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
+    }
   }
 
   function logout(){
@@ -67,26 +79,29 @@ class LoginController{
   }
 
   function editorUsuario(){
-    $email = $_GET['email'];
-    if (isset($email)){
-      $usuario = $this->model->getUsuario($email);
-      $this->view->mostrarEditorUsuario($usuario);
+    if(($_SESSION["privilegio"])=="administrador"){
+      $email = $_GET['datos'];
+      if (isset($email)){
+        $usuario = $this->model->getUsuario($email);
+        $this->view->mostrarEditorUsuario($usuario);
+      }
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
     }
   }
 
   function editarUsuario(){
-    $email = $_POST["email"];
-    $privilegio = $_POST["privilegio"];
-    $this->model->editarUsuario($email,$privilegio);
-    $this->mostrarAdministrarUsuarios();
-  }
-
-  function checkSession(){
-    if (isset($_SESSION["privilegio"])) {
-      return true;
-    }else{
-      return false;
+    if(($_SESSION["privilegio"])=="administrador"){
+      $email = $_POST["email"];
+      $privilegio = $_POST["privilegio"];
+      $this->model->editarUsuario($email,$privilegio);
+      $this->mostrarAdministrarUsuarios();
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
     }
   }
+
 }
 ?>

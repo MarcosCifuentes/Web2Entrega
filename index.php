@@ -40,6 +40,10 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
   $peliculasDisponiblesController->mostrarPeliculas();
   break;
 
+  case ConfigApp::$ACTION_MOSTRAR_PELICULA_ELEGIDA:
+  $peliculasDisponiblesController->mostrarPeliculaElegida();
+  break;
+
   case ConfigApp::$ACTION_AGREGAR_PELICULA:
   $peliculasDisponiblesController->agregarPelicula();
   break;

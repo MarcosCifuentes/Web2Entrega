@@ -20,10 +20,11 @@ class ComentariosModel extends Model{
     return $sentencia->rowCount();
   }
 
-  function crearComentario($id_pelicula,$comentario, $puntaje){
-    $sentencia = $this->db->prepare("INSERT INTO comentario(id_pelicula,comentario,puntaje) values(?,?,?)");
-    $sentencia->execute(array($id_pelicula,$comentario,$puntaje));
-    return $this->db->lastInsertId();
+  function crearComentario($id_pelicula,$comentario, $puntuacion){
+    $sentencia = $this->db->prepare("INSERT INTO comentario(id_pelicula,comentario,puntuacion) values(?,?,?)");
+    $sentencia->execute(array($id_pelicula,$comentario,$puntuacion));
+    $id_comentario = $this->db->lastInsertId();
+    return $id_comentario;
   }
 }
 ?>

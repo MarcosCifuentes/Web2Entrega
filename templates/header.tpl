@@ -10,4 +10,3 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="css/estilo.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>

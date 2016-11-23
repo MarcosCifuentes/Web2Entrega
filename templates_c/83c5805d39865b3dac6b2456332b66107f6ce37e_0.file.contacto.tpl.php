@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-21 17:35:12
+/* Smarty version 3.1.30, created on 2016-11-23 02:56:53
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\contacto.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_583322400bd622_25925997',
+  'unifunc' => 'content_5834f7653766c9_33343888',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '83c5805d39865b3dac6b2456332b66107f6ce37e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\contacto.tpl',
-      1 => 1479745165,
+      1 => 1479866194,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_583322400bd622_25925997 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5834f7653766c9_33343888 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div>
 <h2>Envienos Su Mensaje</h2>
@@ -64,7 +64,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['index']->value => $_smarty_tpl->tpl_v
 
         </td>
         <td>
-          <a class="js-visibilidad" class="eliminarMensaje" href="#" data-idcontacto="<?php echo $_smarty_tpl->tpl_vars['contacto']->value['id_contacto'];?>
+          <a class="consulta_js" href="#" name="eliminar_mensaje" data="<?php echo $_smarty_tpl->tpl_vars['contacto']->value['id_contacto'];?>
 "><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
         </td>
       </tr>

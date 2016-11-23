@@ -27,15 +27,9 @@ class PeliculasDisponiblesModel extends Model{
   function getPeliculas(){
     $sentencia = $this->db->prepare( "select * from pelicula");
     $sentencia->execute();
-    $peliculas=array();
-    while ($pelicula = $sentencia->fetch(PDO::FETCH_ASSOC)) {
-      $pelicula["genero"] = $this->modelGenero->getGenero($pelicula["fk_id_genero"]);
-      $peliculas[]=$pelicula;
-    }
-    foreach ($peliculas as $key => $pelicula) {
-      $peliculas[$key]['imagenes']=$this->getImagenes($pelicula['id_pelicula']);
-    }
-    return($peliculas);
+    $peliculas = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+    return $peliculas;
   }
 
   function getImagenes($id_pelicula){
@@ -53,6 +47,16 @@ class PeliculasDisponiblesModel extends Model{
 
   }
 
+  function getPeliculaElegida($id_pelicula){
+    $sentencia = $this->db->prepare( "select * from pelicula where id_pelicula=?");
+    $sentencia->execute(array($id_pelicula));
+    $pelicula = $sentencia->fetch(PDO::FETCH_ASSOC);
+    $pelicula["genero"] = $this->modelGenero->getGenero($pelicula["fk_id_genero"]);
+    $pelicula['imagenes']=$this->getImagenes($pelicula['id_pelicula']);
+
+    return $pelicula;
+  }
+
   function agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagenes){
     $sentencia = $this->db->prepare("INSERT INTO pelicula(titulo,descripcion,duracion,fk_id_genero) VALUES(?,?,?,?)");
     $sentencia->execute(array($titulo,$descripcion,$duracion,$genero));
@@ -68,7 +72,7 @@ class PeliculasDisponiblesModel extends Model{
       $insertImage->execute(array($id_pelicula,$path));
     }
   }
-  
+
   function eliminarPelicula($pelicula){
     $sentencia = $this->db->prepare("DELETE from pelicula where id_pelicula=?");
     $sentencia->execute(array($pelicula));

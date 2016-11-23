@@ -13,9 +13,7 @@ class LoginView{
     $this->smarty->display('login.tpl');
   }
 
-  function mostrarRegister($session,$privilegios){
-    $this->smarty->assign('session', $session);
-    $this->smarty->assign('privilegios', $privilegios);
+  function mostrarRegister(){
     $this->smarty->display('register.tpl');
   }
 

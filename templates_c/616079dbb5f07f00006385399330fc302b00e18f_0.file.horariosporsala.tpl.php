@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-21 17:23:28
+/* Smarty version 3.1.30, created on 2016-11-23 02:56:50
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\horariosporsala.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58331f80b81f28_96189897',
+  'unifunc' => 'content_5834f7624cd866_95860586',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '616079dbb5f07f00006385399330fc302b00e18f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\Web2Entrega\\templates\\horariosporsala.tpl',
-      1 => 1479745372,
+      1 => 1479866187,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58331f80b81f28_96189897 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5834f7624cd866_95860586 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Sala y Horario</h1>
 <table class="table">
@@ -55,9 +55,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['index']->value => $_smarty_tpl->tpl_v
         </td>
           <?php if (($_smarty_tpl->tpl_vars['session']->value == true) && ($_smarty_tpl->tpl_vars['privilegios']->value == 'administrador')) {?>
         <td>
-          <a  class="eliminarHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
+          <a  class="consulta_js" href="#" name="eliminar_horario" data="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
 "><span class="glyphicon glyphicon-remove" ></span></a>
-          <a  class="editorHorario" href="#" data-idhorario="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
+          <a  class="consulta_js" href="#" name="editor_horario" data="<?php echo $_smarty_tpl->tpl_vars['horario']->value['id_horario'];?>
 "><span class="glyphicon glyphicon-pencil" ></span></a>
         </td>
           <?php }?>

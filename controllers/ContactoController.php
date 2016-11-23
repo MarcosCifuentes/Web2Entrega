@@ -1,9 +1,9 @@
 <?php
 require_once('views/ContactoView.php');
 require_once ('models/ContactoModel.php');
+require_once ('controllers/CinemaController.php');
 
-class  ContactoController
-{
+class ContactoController extends CinemaController{
   private $vista;
   private $model;
 
@@ -21,6 +21,7 @@ class  ContactoController
     $contactos=$this->model->getMensajes();
     $session = $this->checkSession();
     $this->vista->mostrarMensajes($contactos, $session, $privilegios);
+
   }
 
   function enviarMensaje(){
@@ -34,19 +35,17 @@ class  ContactoController
   }
 
   function eliminarMensaje(){
-    $key = $_GET['id_contacto'];
-    if (isset($key)){
-      $this->model->eliminarMensaje($key);
+    if(($_SESSION["privilegio"])=="administrador"){
+      $id_contacto = $_GET['datos'];
+      if (isset($id_contacto)){
+        $this->model->eliminarMensaje($id_contacto);
+      }
+      $this->mostrarMensajes();
     }
-    $this->mostrarMensajes();
+    else {
+      echo "<h1>a la cucha perro</h1>";
+    }
   }
 
-  function checkSession(){
-    if (isset($_SESSION["privilegio"])) {
-      return true;
-    }else{
-      return false;
-    }
-  }
 }
 ?>
