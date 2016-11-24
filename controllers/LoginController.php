@@ -74,6 +74,7 @@ class LoginController extends CinemaController{
   }
 
   function logout(){
+    echo "hola";
     session_destroy();
     header("Location: index.php"); die();
   }

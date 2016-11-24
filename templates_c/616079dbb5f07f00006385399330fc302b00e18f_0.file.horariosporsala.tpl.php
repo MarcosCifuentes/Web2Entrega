@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-23 02:56:50
+/* Smarty version 3.1.30, created on 2016-11-23 21:07:10
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\horariosporsala.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5834f7624cd866_95860586',
+  'unifunc' => 'content_5835f6ee49cb63_84576521',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5834f7624cd866_95860586 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5835f6ee49cb63_84576521 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Sala y Horario</h1>
 <table class="table">

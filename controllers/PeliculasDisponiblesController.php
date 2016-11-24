@@ -45,66 +45,79 @@ class  PeliculasDisponiblesController extends CinemaController{
 
   function editorPelicula(){
     if(($_SESSION["privilegio"])=="administrador"){
-    $id_pelicula = $_GET['datos'];
-    if (isset($id_pelicula)){
-      $pelicula = $this->model->getPelicula($id_pelicula);
-      $generos = $this->modelGenero->getGeneros();
-      $this->vista->mostrarEditorPelicula($pelicula, $generos);
+      $id_pelicula = $_GET['datos'];
+      if (isset($id_pelicula)){
+        $pelicula = $this->model->getPelicula($id_pelicula);
+        $generos = $this->modelGenero->getGeneros();
+        $this->vista->mostrarEditorPelicula($pelicula, $generos);
+      }
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
     }
   }
-  else {
-    echo "<h1>a la cucha perro</h1>";
-  }
-}
 
-function editarPelicula(){
-  if(($_SESSION["privilegio"])=="administrador"){
-    $id_pelicula = $_POST["id_pelicula"];
-    $titulo = $_POST["titulo"];
-    $duracion = $_POST["duracion"];
-    $genero = $_POST["genero"];
-    $descripcion = $_POST["descripcion"];
-    if (isset($id_pelicula,$titulo,$duracion,$genero,$descripcion)){
-      $this->model->editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion);
+  function editarPelicula(){
+    if(($_SESSION["privilegio"])=="administrador"){
+      $id_pelicula = $_POST["id_pelicula"];
+      $titulo = $_POST["titulo"];
+      $duracion = $_POST["duracion"];
+      $genero = $_POST["genero"];
+      $descripcion = $_POST["descripcion"];
+      if (isset($id_pelicula,$titulo,$duracion,$genero,$descripcion)){
+        $this->model->editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion);
+      }
+      $this->mostrarPeliculas();
     }
-    $this->mostrarPeliculas();
-  }
-  else {
-    echo "<h1>a la cucha perro</h1>";
-  }
-}
-
-
-function agregarPelicula(){
-  if(($_SESSION["privilegio"])=="administrador"){
-    $titulo = $_POST['titulo'];
-    $descripcion = $_POST['descripcion'];
-    $duracion =  $_POST['duracion'];
-    $genero =  $_POST['genero'];
-    $imagenes = $_FILES['imagenes'];
-    if (isset($imagenes,$genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
-      $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagenes);
+    else {
+      echo "<h1>a la cucha perro</h1>";
     }
-    $this->mostrarPeliculas();
   }
-  else {
-    echo "<h1>a la cucha perro</h1>";
-  }
-}
 
-function eliminarPelicula(){
-  if(($_SESSION["privilegio"])=="administrador"){
-    $id_pelicula = $_GET['datos'];
-    if (isset($id_pelicula)){
-      $this->model->eliminarPelicula($id_pelicula);
-      $this->model->eliminarImagenes($id_pelicula);
+
+  function agregarPelicula(){
+    if(($_SESSION["privilegio"])=="administrador"){
+      $titulo = $_POST['titulo'];
+      $descripcion = $_POST['descripcion'];
+      $duracion =  $_POST['duracion'];
+      $genero =  $_POST['genero'];
+      $imagenes = $_FILES['imagenes'];
+      if (isset($imagenes,$genero)&&($descripcion!="")&&($duracion!="")&&($titulo!="")) {
+        $this->model->agregarPelicula($titulo,$descripcion,$duracion,$genero,$imagenes);
+      }
+      $this->mostrarPeliculas();
     }
-    $this->mostrarPeliculas();
+    else {
+      echo "<h1>a la cucha perro</h1>";
+    }
   }
-  else {
-    echo "<h1>a la cucha perro</h1>";
+
+  function eliminarPelicula(){
+    if(($_SESSION["privilegio"])=="administrador"){
+      $id_pelicula = $_GET['datos'];
+      if (isset($id_pelicula)){
+        $this->model->eliminarPelicula($id_pelicula);
+        $this->model->eliminarImagenes($id_pelicula);
+      }
+      $this->mostrarPeliculas();
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
+    }
   }
-}
+
+  function eliminarImagen(){
+    if(($_SESSION["privilegio"])=="administrador"){
+      $id_imagen = $_GET['datos'];
+      if (isset($id_imagen)){
+        $this->model->eliminarImagen($id_imagen);
+      }
+      $this->mostrarPeliculas();
+    }
+    else {
+      echo "<h1>a la cucha perro</h1>";
+    }
+  }
 
 }
 

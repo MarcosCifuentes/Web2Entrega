@@ -1,5 +1,5 @@
 <?php
-include_once ("models/Model.php");
+include_once (dirname(__DIR__).'/models/Model.php');
 class ComentariosModel extends Model{
 
   function getComentarios(){
@@ -8,10 +8,10 @@ class ComentariosModel extends Model{
     return $comentarios->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function getComentario($id_comentario){
-    $comentario = $this->db->prepare("SELECT * FROM comentario where id_comentario = ?" );
-    $comentario->execute(array($id_comentario));
-    return $comentario->fetch(PDO::FETCH_ASSOC);
+  function getComentario($id_pelicula){
+    $comentario = $this->db->prepare("SELECT * FROM comentario where id_pelicula = ?" );
+    $comentario->execute(array($id_pelicula));
+    return $comentario->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function eliminarComentario($id_comentario){
@@ -21,6 +21,7 @@ class ComentariosModel extends Model{
   }
 
   function crearComentario($id_pelicula,$comentario, $puntuacion){
+    var_dump($id_pelicula);
     $sentencia = $this->db->prepare("INSERT INTO comentario(id_pelicula,comentario,puntuacion) values(?,?,?)");
     $sentencia->execute(array($id_pelicula,$comentario,$puntuacion));
     $id_comentario = $this->db->lastInsertId();

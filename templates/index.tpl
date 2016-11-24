@@ -21,10 +21,7 @@
           <li><a name="mostrar_genero" href="#" class="navegacion" >Peliculas por Genero<span class="sr-only">(Peliculas por Genero)</span></a></li>
           <li><a name="mostrar_horarios_por_sala" href="#" class="navegacion" >Horarios por Sala<span class="sr-only">(Horarios por Sala)</span></a></li>
           <li><a name="mostrar_contacto" href="#" class="navegacion" >Contacto<span class="sr-only">(Contacto)</span></a></li>
-          {if ($session==true) && ($privilegios == administrador)}<li><a class="bg-primary navegacion" name="administrar_usuarios" href="#" rel="adminUser">Administrar Usuarios<span class="sr-only">(Administrar Usuarios)</span></a></li>{/if}
-          {if ($session==false)}<li><a class="bg-primary navegacion" name="mostrar_login" href="#" rel="login">Login<span class="sr-only">(Login)</span></a></li><li><a class="bg-primary navegacion" name="mostrar_register" href="#" rel="registrar">Registrar<span class="sr-only">(Registrar)</span></a></li>{/if}
-          {if ($session==true)}<li><form method="POST" action="index.php?action=logout"><button class="bg-primary " name="logout" type="submit">Cerrar Sesión</button></form></li>{/if}
-
+          
 
         </ul>
       </div><!-- /.navbar-collapse -->

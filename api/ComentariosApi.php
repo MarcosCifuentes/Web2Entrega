@@ -1,7 +1,7 @@
 
 <?php
 require 'api.php';
-include_once("../models/ComentarioModel.php");
+include_once (dirname(__DIR__).'/models/ComentarioModel.php');
 class ComentariosApi extends Api
 {
   private $model;
@@ -30,7 +30,6 @@ class ComentariosApi extends Api
           }
         break;
         case 'POST':
-            echo("count: ".count($argumentos) );
             if(count($argumentos)==0){
               $error['Error'] = "El comentario no se creo";
               $id_comentario = $this->model->crearComentario($_POST['id_pelicula'],$_POST['comentario'],$_POST['puntuacion']);

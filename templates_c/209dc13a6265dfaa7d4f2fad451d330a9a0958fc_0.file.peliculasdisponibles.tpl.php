@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-23 17:06:04
+/* Smarty version 3.1.30, created on 2016-11-23 20:29:41
   from "C:\xampp\htdocs\proyectos\Web2Entrega\templates\peliculasdisponibles.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5835be6c766012_20420906',
+  'unifunc' => 'content_5835ee25daaad1_36397311',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5835be6c766012_20420906 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5835ee25daaad1_36397311 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>Peliculas Disponibles</h1>
 <ul class="list-group">

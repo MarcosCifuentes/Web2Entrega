@@ -14,7 +14,9 @@ class CinemaView{
     $this->smarty->display('index.tpl');
   }
 
-  function mostrarContenido () {
+  function mostrarContenido ($session,$privilegios) {
+    $this->smarty->assign('session', $session);
+    $this->smarty->assign('privilegios', $privilegios);
     $this->smarty->display('home.tpl');
   }
 

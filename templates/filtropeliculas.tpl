@@ -4,7 +4,7 @@
       <li>
         <h2>{$genero['titulo']}</h2>
         <ul>
-          <div class="container">
+          <div class="">
         <br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->

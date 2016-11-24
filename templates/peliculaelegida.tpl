@@ -2,7 +2,15 @@
   <li>
     <h2>{$pelicula['titulo']}</h2>
     <ul>
-      <div class="container">
+      {if ($session==true) && ($privilegios == administrador)}
+      {foreach $pelicula['imagenes'] as $imagen}
+      <img src="{$imagen['path']}" alt="Chania">
+      <a class="consulta_js" href="#" name="eliminar_imagen" data="{$imagen['id_imagen']}"><span class="glyphicon glyphicon-remove" ></span></a>
+      {/foreach}
+      {/if}
+
+      {if (($session==false) || (($session==true) && ($privilegios == usuario)))}
+      <div class="">
         <br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -41,16 +49,17 @@
           </div>
         </div>
       </div>
+      {/if}
       <li><h4>Genero</h4>{$pelicula['genero']}</li>
       <li><h4>Duracion</h4>{$pelicula['duracion']}<p>minutos</p></li>
       <li><h4>Descripcion</h4>{$pelicula['descripcion']}</li>
       <div class="panel">
         <h2>Comentarios</h2>
-        <div class="container panel" id="div-com">
+        <div class=" panel" id="div-com">
 
         </div>
         {if ($session==true) && ($privilegios == usuario)}
-        <form class="form-inline crearComentario" href="api/ComentariosApi" method="post">
+        <form class="form-inline crearComentario" method="post">
           <select class="puntuacion-api" name="puntaje">
             <option value="1">1</option>
             <option value="2">2</option>

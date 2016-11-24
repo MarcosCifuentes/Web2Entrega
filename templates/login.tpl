@@ -1,6 +1,6 @@
-<div class="panel">
+<div class="">
   <h3>Log In</h3>
-  <form action="index.php?action=mostrar_login" method="post">
+  <form class="formulario" action="mostrar_login" method="post">
     <div class="form-group">
       <input type="email" name="email" value="" placeholder="Email">
       <input type="password" name="pass" value="" placeholder="Contraseña">

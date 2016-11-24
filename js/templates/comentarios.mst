@@ -1,5 +1,5 @@
-<div class="row">
 {{#pelicula}}
+<div class="row">
       <div class="col-md-7">
         {{comentario}}
       </div>
@@ -8,6 +8,5 @@
       </div>
         <a class="eliminarComentario col-md-2" id_comentario="{{id_comentario}}" id_pelicula="{{id_pelicula}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
 
-  </div>
-{{/pelicula}}
 </div>
+{{/pelicula}}

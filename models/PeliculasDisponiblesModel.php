@@ -113,5 +113,10 @@ class PeliculasDisponiblesModel extends Model{
 
   }
 
+  function eliminarImagen($id_imagen){
+    $sentencia = $this->db->prepare("DELETE from imagen where id_imagen=?");
+    $sentencia->execute(array($id_imagen));
+  }
+
 }
 ?>

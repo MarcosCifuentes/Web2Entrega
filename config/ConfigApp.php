@@ -12,6 +12,7 @@ class ConfigApp{
   public static $ACTION_ELIMINAR_PELICULA = 'eliminar_pelicula';
   public static $ACTION_EDITOR_PELICULA = 'editor_pelicula';
   public static $ACTION_EDITAR_PELICULA = 'editar_pelicula';
+  public static $ACTION_ELIMINAR_IMAGEN = 'eliminar_imagen';
 
   public static $ACTION_LISTAR_PELICULAS_GENERO = 'listar_peliculas_genero';
   public static $ACTION_AGREGAR_GENERO = 'agregar_genero';
