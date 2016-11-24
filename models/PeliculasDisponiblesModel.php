@@ -107,10 +107,18 @@ class PeliculasDisponiblesModel extends Model{
     return $titulo;
   }
 
-  function editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion){
+  function editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion,$imagenes){
     $sentencia = $this->db->prepare("UPDATE pelicula SET titulo=?,duracion=?,fk_id_genero=?,descripcion=? WHERE  id_pelicula=?");
     $sentencia->execute(array($titulo,$duracion,$genero,$descripcion,$id_pelicula));
 
+    $max = sizeof($imagenes["name"]);
+
+    for ($i=0; $i < $max; $i++) {
+      $path="images/".uniqid()."_".$imagenes["name"][$i];
+      move_uploaded_file($imagenes["tmp_name"][$i], $path);
+      $insertImage = $this->db->prepare("INSERT INTO imagen(fk_id_pelicula,path) VALUES(?,?)");
+      $insertImage->execute(array($id_pelicula,$path));
+    }
   }
 
   function eliminarImagen($id_imagen){

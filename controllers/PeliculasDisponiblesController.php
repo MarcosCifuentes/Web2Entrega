@@ -64,8 +64,9 @@ class  PeliculasDisponiblesController extends CinemaController{
       $duracion = $_POST["duracion"];
       $genero = $_POST["genero"];
       $descripcion = $_POST["descripcion"];
-      if (isset($id_pelicula,$titulo,$duracion,$genero,$descripcion)){
-        $this->model->editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion);
+      $imagenes = $_FILES['imagenes'];
+      if (isset($id_pelicula,$titulo,$duracion,$genero,$descripcion,$imagenes)){
+        $this->model->editarPelicula($id_pelicula,$titulo,$duracion,$genero,$descripcion,$imagenes);
       }
       $this->mostrarPeliculas();
     }

@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="">
   <h3>Crear Cuenta</h3>
   <form class="formulario" action="register" method="post">
     <input type="email" name="email" value="" placeholder="E-mail">

@@ -17,8 +17,6 @@ class ComentariosApi extends Api
             $comentario = $this->model->getComentario($argumentos[0]);
             $error['Error'] = "Ese comentario no existe";
             return ($comentario) ? $comentario : $error;
-          }else{
-            return $this->model->getComentarios();
           }
         break;
       case 'DELETE':

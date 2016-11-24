@@ -13,6 +13,7 @@
         </select>
         </div>
       <textarea  class="form-control" rows="8" type="text" name="descripcion" required value="" placeholder="descripcion">{$pelicula['descripcion']}</textarea>
+      <input type="file" name="imagenes[]" required value="" multiple>
       <input type="submit" name="Editar" >
     </form>
   </div>
