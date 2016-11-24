@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2016 a las 17:41:57
+-- Tiempo de generación: 24-11-2016 a las 05:01:30
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -33,6 +33,15 @@ CREATE TABLE `comentario` (
   `puntuacion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `id_pelicula`, `comentario`, `puntuacion`) VALUES
+(80, 23, 'dios que peli', 5),
+(83, 23, 'arreloco', 1),
+(84, 24, 'otra vez', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -51,8 +60,7 @@ CREATE TABLE `contacto` (
 --
 
 INSERT INTO `contacto` (`id_contacto`, `nombreyapellido`, `email`, `mensaje`) VALUES
-(3, 'asdsasd', 'marcosnaza16@hotmail.com', 'dsasdasdasdasd'),
-(4, 'arreloco', 'marcosciguentes@hotmail.com', 'puto el que lee');
+(7, 'Juan lorem', 'lorem@lore.com', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ');
 
 -- --------------------------------------------------------
 
@@ -70,7 +78,7 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id_genero`, `genero`) VALUES
-(24, 'tirror'),
+(24, 'terror'),
 (25, 'ciencia ficcion'),
 (26, 'accion'),
 (27, 'aventura'),
@@ -94,8 +102,7 @@ CREATE TABLE `horario` (
 --
 
 INSERT INTO `horario` (`id_horario`, `fk_pelicula`, `sala`, `horario`) VALUES
-(12, 13, 'sala 3', '11:11:11'),
-(13, 13, 'sala 2', '12:13:14');
+(21, 20, '3', '14:14:14');
 
 -- --------------------------------------------------------
 
@@ -114,13 +121,11 @@ CREATE TABLE `imagen` (
 --
 
 INSERT INTO `imagen` (`id_imagen`, `fk_id_pelicula`, `path`) VALUES
-(25, 11, 'images/58320df8dd82a_41571_115615515150604_549_n.jpg'),
-(26, 11, 'images/58320df8e39d3_asdds.png'),
-(27, 11, 'images/58320df8e9b7d_CAK2SyAWMAAjhMo.jpg'),
-(28, 11, 'images/58320df8efd26_descarga.jpg'),
-(29, 11, 'images/58320df901c90_Screenshot_1.png'),
-(30, 11, 'images/58320df907e39_trade 2.png'),
-(33, 13, 'images/58331eb18b20e_descarga.jpg');
+(48, 23, 'images/58364099013d2_laslocurasderobinsoncrusoe.png'),
+(49, 23, 'images/583640990a074_robinson2.jpg'),
+(51, 24, 'images/583644082b569_doctor-strange.jpg'),
+(52, 24, 'images/583644082f259_doctor-strange-destacada.jpg'),
+(54, 24, 'images/5836442fd27d1_doctor-strange-destacada.jpg');
 
 -- --------------------------------------------------------
 
@@ -141,8 +146,8 @@ CREATE TABLE `pelicula` (
 --
 
 INSERT INTO `pelicula` (`id_pelicula`, `titulo`, `descripcion`, `duracion`, `fk_id_genero`) VALUES
-(11, 'asd', 'asdd', 123, 24),
-(13, 'formulario', 'esto anda', 123, 24);
+(23, 'LAS AVENTURAS DE ROBINSON CRUSOE', 'la descripcion era muy dificil', 90, 27),
+(24, 'DOCTOR EXTRAÑO', 'LOREM NUPSUM', 124, 27);
 
 -- --------------------------------------------------------
 
@@ -166,9 +171,13 @@ INSERT INTO `usuario` (`id_usuario`, `email`, `contrasenia`, `privilegio`) VALUE
 (3, 'qwer@qwer.com', '$2y$10$nrvohUDK7gAdUEpKnxh4YOeHnvDZyUAUDmqO7gtnis3N7dROB3iPm', 'administrador'),
 (4, 'sadf@asdf', '$2y$10$TCCsgAK5zZIO0o40o2xmj.Rv7rk1BGq8ToAqCaWIw5mtnsateqzri', 'usuario'),
 (5, 'xzcv@zcxv.com', '$2y$10$RQ1XLZkGLh/ejZPJ7bXd0u3o7A9dFJM3QV9xF6QDBrSmkVL0K7l/q', 'administrador'),
-(6, 'otromas@gmail.com', '$2y$10$TYWJ2W313rDTAAHe2.yLCedMD4P8/TH.yA1HzaW0HJLKQF.KdHyPO', 'administrador'),
-(7, 'martin@poume.com', '$2y$10$apzGoLw8NncVQvx5vGUxzuvT.2Y8AxLHnBD8L0xplVnX1sRc/vpz2', 'administrador'),
-(8, 'a@a.com', '$2y$10$1x79Cve8Vyw71wtzREjre./hxUe7QME21GdHL9fXtGMPC1kVN.wbC', 'usuario');
+(6, 'otromas@gmail.com', '$2y$10$TYWJ2W313rDTAAHe2.yLCedMD4P8/TH.yA1HzaW0HJLKQF.KdHyPO', 'usuario'),
+(7, 'martin@poume.com', '$2y$10$apzGoLw8NncVQvx5vGUxzuvT.2Y8AxLHnBD8L0xplVnX1sRc/vpz2', 'usuario'),
+(8, 'a@a.com', '$2y$10$1x79Cve8Vyw71wtzREjre./hxUe7QME21GdHL9fXtGMPC1kVN.wbC', 'usuario'),
+(9, 'usuario@usuario.com', '$2y$10$NGpw..00bftK.DnQ9.LPWOKDC7zG8adLL6rGpyyeHbYUmCwAGEBXu', 'usuario'),
+(10, 'admin@admin.com', '$2y$10$h5ClndH8ZVBaTvLLmJYhROq8XGjQhss/FK.bQoAT/Hv3Cut0zup2C', 'administrador'),
+(11, 'asdasd@asdasd.com', '$2y$10$0IpKyyWKK2cjpg3PpbDGL.eyYj6JnjeqiWPWP1ZcrRFUh26tr2hL6', 'usuario'),
+(12, 'asdasdasd@asdasdasd.com', '$2y$10$z5LK.EHK2CPSVNtlud9oFemSFK.mN9GmIMm2fCEhFu/aUV4iGsy6i', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -224,37 +233,37 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
